@@ -1,0 +1,128 @@
+<div ng-include="mapa.menutemplate.url"></div>
+<!-- <div ng-include="mapa.navtemplate.url"></div> -->
+<ul id="slide-out" class="side-nav">
+    <li><div class="userView">
+      <div class="background">
+        <img src="images/fondo.jpg">
+      </div>
+      <a href="#!user"><img class="circle" src="images/office.jpg"></a>
+      <a href="#!name"><span class="white-text name">John Doe</span></a>
+      <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+    </div></li>
+    <li><a href="/#!/proyectos"><i class="material-icons">cloud</i>Proyectos</a></li>
+    <li><a href="#!">Second Link</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Subheader</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+  </ul>
+  <a href="mapa.navtemplate.url" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+<div class="row">
+        <div class="col s6 m6">
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="images/bosque.jpg">
+          </div>
+          <div class="card-stacked blue-grey darken-1">
+            <div class="card-content">
+              <span class="card-title">OBJETIVO</span>
+              <p style="text-align: justify;">Nuestro principal objetivo es disminuir la huella de carbono producida por el consumo de energía, de esta manera contribuir a disminuir la emision de gase de efecto invernadero, los cuales aumentan los efectos del cambio climatico.</p>
+            </div>
+            <div class="card-action">
+              <a class="waves-effect waves-light indigo btn" onclick="Materialize.toast('¿Qué es Huella de Carbono?', 4000, 'rounded')" ng-href="/#!/hcarbono"><i class="material-icons left" >cloud</i>¿huella de carbono?</a>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="col s6 m6">
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="images/solar.jpg">
+          </div>
+          <div class="card-stacked blue-grey darken-1">
+            <div class="card-content">
+              <span class="card-title">Proyectos</span>
+              <p style="text-align: justify;">Existen distintos proyectos a los cuales postular, además si tienes tu proyecto propio, puedes participar con él.</p>
+            </div>
+            <div class="card-action">
+              <a class="waves-effect waves-light indigo btn" onclick="Materialize.toast('Proyectos Ejecutados', 4000, 'rounded')" ng-href="/#!/proyectos"><i class="material-icons left">playlist_add_check</i>Proyectos Ejecutados</a>
+              <br><br>
+              <a class="waves-effect waves-light indigo btn" onclick="Materialize.toast('Postular a Proyectos', 4000, 'rounded')" ng-href="/#!/postular"><i class="material-icons left" >local_post_office</i>Postular a Proyecto</a>
+
+            </div>
+          </div>
+        </div>  	
+     </div>
+     </div>
+     <!-- segunda linea de cards -->
+     <div class="row">
+        <div class="col s6 m6">
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="images/grafico.png">
+          </div>
+          <div class="card-stacked blue-grey darken-1">
+            <div class="card-content">
+              <span class="card-title">Consumo</span>
+              <p style="text-align: justify;">Puedes verificar tu consumo diario, y el mensual. Dispones de gráficos que se actualizan constantemente, para permitir un conocimiento real del consumo electrico</p>
+            </div>
+            <div class="card-action">
+              <a class="waves-effect waves-light indigo btn pulse"  onclick="Materialize.toast('¿Cuál es mi Consumo?', 4000,'rounded')" ng-href="/#!/grafico"><i class="material-icons left" >pie_chart_outlined</i>¿Cuál es mi consumo?</a>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="col s6 m6">
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="images/solar.jpg">
+          </div>
+          <div class="card-stacked blue-grey darken-1">
+            <div class="card-content">
+              <span class="card-title">Metas de Consumo</span>
+              <p style="text-align: justify;"></p>
+            </div>
+            <div class="card-action">
+              <a class="waves-effect waves-light indigo btn" ng-href="/#!/metas"><i class="material-icons left" >face</i>Metas de consumo</a>
+
+            </div>
+          </div>
+        </div>    
+     </div>
+     <!-- tercera linea de cards -->
+     <div class="row">
+        <div class="col s6 m6">
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="images/tasks.png">
+          </div>
+          <div class="card-stacked blue-grey darken-1">
+            <div class="card-content">
+              <span class="card-title">Lista de Proyectos Disponibles</span>
+              <p style="text-align: justify;">Puedes ver los distintos proyectos existentes</p>
+            </div>
+            <div class="card-action">
+              <a class="waves-effect waves-light indigo btn pulse"  onclick="Materialize.toast('¿Cuál es mi Consumo?', 4000,'rounded')" ng-href="/#!/listaProyectos"><i class="material-icons left" >pie_chart_outlined</i>¿Lista de Proyectos?</a>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="col s6 m6">
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="images/solar.jpg">
+          </div>
+          <div class="card-stacked blue-grey darken-1">
+            <div class="card-content">
+              <span class="card-title">Metas de Consumo</span>
+              <p style="text-align: justify;"></p>
+            </div>
+            <div class="card-action">
+              <a class="waves-effect waves-light indigo btn" ng-href="/#!/metas"><i class="material-icons left" >face</i>Metas de consumo</a>
+
+            </div>
+          </div>
+        </div>    
+     </div>
+     </div>     
+</div>
+
