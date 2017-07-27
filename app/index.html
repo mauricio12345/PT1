@@ -1,14 +1,6 @@
 <!doctype html>
 <html>
-  <head>
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.9";
-    fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+  <head>    
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
@@ -30,13 +22,19 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
+    <div id="fb-root"></div>
+      <script> (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.9";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
     
     
     <div ng-view=""></div>
     
-    <!-- <div class="fb-page" data-href="https://www.facebook.com/organizame.chile/?hc_ref=SEARCH&amp;fref=nf" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/organizame.chile/?hc_ref=SEARCH&amp;fref=nf" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/organizame.chile/?hc_ref=SEARCH&amp;fref=nf">Organizame, sistema de administración y facturación</a></blockquote></div> -->
-    <div class="fb-comments" data-href="http://www.organizame.cl/" data-numposts="10"></div>
-   <div class="fb-like" data-href="http://www.organizame.cl/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    
 
     <footer class="page-footer indigo">
           <div class="container">
@@ -91,6 +89,8 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/materialize/bin/materialize.js"></script>
     <script src="bower_components/angular-google-chart/ng-google-chart.js"></script>
+    <script src="bower_components/chart.js/dist/Chart.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -110,6 +110,9 @@
         <script src="scripts/controllers/metas.js"></script>
         <script src="scripts/controllers/navbar.js"></script>
         <script src="scripts/controllers/listaproyectos.js"></script>
+        <script src="scripts/controllers/consumodiario.js"></script>
+        <script src="scripts/controllers/dibujar.js"></script>
+        <script src="scripts/controllers/ebarrio.js"></script>
         <!-- endbuild -->
 </body>
 </html>

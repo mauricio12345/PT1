@@ -8,7 +8,7 @@
  * Controller of the plataformaApp
  */
 angular.module('plataformaApp')
-  .controller('GraficoCtrl', function ($scope,$http) {
+  .controller('GraficoCtrl', function ($scope,$http,$timeout,$rootScope) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -16,48 +16,37 @@ angular.module('plataformaApp')
     ];
 	   $http({
 	   	method: 'GET',
-	   	url:'https://api.mlab.com/api/1/databases/efficientmdb/collections/ConsumoMes?apiKey=7K2Y6doZUobEqRHLROy1D26_rHQOL89B'
+	   	url:'https://api.mlab.com/api/1/databases/efficientmdb/collections/ConsumoMes?q={"nombre":"Franco"}&apiKey=7K2Y6doZUobEqRHLROy1D26_rHQOL89B'
 	   }).then(function successCallback(response){
-	   	$scope.posts = response.data
+	   	$rootScope.posts = response.data
+	   	$scope.colors = ['#45b7cd','#ff6384','#ff8e72'];
+    	$scope.labels =['KWH','Costo $','Maximo Consumo KWH'];
+    	$scope.data =[[28,5128, 180],
+    	[]];
+    	$scope.datasetOverride = [{
+    		label:"Bar chart",
+    		borderWidth: 1,
+    		type: 'bar'
+    	},
+    	{
+    		label:"Line chart",
+    		borderWidth: 3,
+    		hoverBackgroundColor:"rgba(255,99,132,0.4)",
+    		hoverBorderColor: "rgba(255,99,132,1)",
+    		type:'line'
+    	}
+    	];	  
 
 	   },function errorCallback(response){
 
 	   });
-	   $http({
-	   	method: 'GET',
-	   	url:'https://api.mlab.com/api/1/databases/efficientmdb/collections/ConsumoDia?apiKey=7K2Y6doZUobEqRHLROy1D26_rHQOL89B'
-	   }).then(function successCallback(response){
-	   	$scope.diario = response.data
-
-	   },function errorCallback(response){
-
-	   });
+	   
 	   var vm=this;
     	vm.menutemplate={
     	url:'views/menu.html'
     	};
-
-	    // $scope.myChartObject = {};
-	    // $scope.myChartObject.type = "Gauge";
-
-	    // $scope.myChartObject.options = {
-	    //   width: 400,
-	    //   height: 120,
-	    //   redFrom: 90,
-	    //   redTo: 100,
-	    //   yellowFrom: 75,
-	    //   yellowTo: 90,
-	    //   minorTicks: 5
-	    // };
-
-	    // $scope.myChartObject.data = [
-	    //   ['Label', 'Value'],
-	    //   ['Kwh',],
-	    //   ['CPU', 55],
-	    //   ['Network', 68]
-	    // ];
-	  
+    	
 });
 	    	
 	
-  // });
+

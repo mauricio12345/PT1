@@ -17,9 +17,10 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'chart.js'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider,ChartJsProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -91,7 +92,29 @@ angular
         controller: 'ListaproyectosCtrl',
         controllerAs: 'listaProyectos'
       })
+      .when('/consumodiario', {
+        templateUrl: 'views/consumodiario.html',
+        controller: 'ConsumodiarioCtrl',
+        controllerAs: 'consumodiario'
+      })
+      .when('/dibujar', {
+        templateUrl: 'views/dibujar.php',
+        controller: 'DibujarCtrl',
+        controllerAs: 'dibujar'
+      })
+      .when('/ebarrio', {
+        templateUrl: 'views/ebarrio.php',
+        controller: 'EbarrioCtrl',
+        controllerAs: 'ebarrio'
+      })
       .otherwise({
         redirectTo: '/'
+      });
+     ChartJsProvider.setOptions({
+      	chartColors:['#FF5252','#FF8A80'],
+      	responsive: true
+      });
+      ChartJsProvider.setOptions('line',{
+      	showlines: false
       });
   });

@@ -26,6 +26,7 @@ angular.module('plataformaApp')
       $scope.proyectos.push($scope.nuevoProyecto);
       $scope.nuevoProyecto={};
   };
+  
 
     var vm=this;
     vm.menutemplate={
