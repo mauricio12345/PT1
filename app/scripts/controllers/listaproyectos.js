@@ -14,18 +14,23 @@ angular.module('plataformaApp')
       'AngularJS',
       'Karma'
     ];
-    $scope.nombre="Proyectos";
-    $scope.nuevoProyecto={};
-    $scope.proyectos=[{
-      "nombre": "Recambio Luminarias Alumbrado Publico", 
-      "objetivo": "Realizar el recambio masivo de alumbrado público en diferentes comunas del país, por tecnologías más eficientes (LED).", 
-      "beneficiario":"El programa beneficia a comunas que tengan su parque de Alumbrado público envejecido o con tecnologías ineficientes Ademas que cumplan con las metas de ahorro de energia propuestas", 
-      "meta": "20% de ahorro en consumo de energia"
-    }];
-    $scope.agregarProyecto= function(){
-      $scope.proyectos.push($scope.nuevoProyecto);
-      $scope.nuevoProyecto={};
+    // var proyectos= new Firebase('https://ebarrio-c0814.firebaseio.com/proyectos');
+    // $scope.proyectos= $firebase(proyectos);
+    // $scope.agregarProyecto=function(){
+    //   $scope.proyectos.$add({texto:$scope.textoNuevoProyecto, hecho: false});
+    //   $scope.textoNuevoProyecto='';
+    // }
+
+     var config = {
+    apiKey: "AIzaSyA71DVboCSlOzIoy6qo4pMbeMU8JpGvXZw",
+    authDomain: "ebarrio-c0814.firebaseapp.com",
+    databaseURL: "https://ebarrio-c0814.firebaseio.com",
+    projectId: "ebarrio-c0814",
+    storageBucket: "ebarrio-c0814.appspot.com",
+    messagingSenderId: "620933575940"
   };
+  firebase.initializeApp(config);
+ 
   
 
     var vm=this;
@@ -35,6 +40,5 @@ angular.module('plataformaApp')
      $(document).ready(function(){
     $('.collapsible').collapsible();
   });
-
 
   });

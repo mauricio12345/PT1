@@ -14,24 +14,8 @@
     </li>
     <li>
       <div class="collapsible-header"><i class="material-icons">format_list_numbered</i>Agregar Proyecto</div>
-      <div>
-        <table class="striped">
-          <tr>
-            <th>Nombre Proyecto</th>
-            <th>Objetivo</th>
-            <th>Metas</th>
-            <!-- <th>Total gasto mensual</th> -->
-          </tr>
-          
-          <tr ng-repeat="post in proyectos">
-            <td>{{post.nombre}}</td>
-            <td>{{post.objetivo}}</td>
-            <td>{{post.meta}}</td>
-            <!-- <td>{{post.costokwh}}</td> -->
-          </tr>
-        </table>
-      </div>
-        <div class="row">
+     
+      <!--   <div class="row">
           <div class="input-field col s6">
             <form>
               <input type="text" ng-model="nuevoProyecto.nombre">
@@ -43,7 +27,44 @@
               <button class="btn waves-effect waves-yellow red" ng-click="agregarProyecto()"> Agregar Proyecto</button>
             </form> 
           </div>
-       </div>
+       </div> -->
+       <div class="row">
+      <div class="col-md-5">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <form class="form" role="form" ng-submit="addMessage(newMessageText); newMessageText = ''">
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="newMessageText" placeholder="Enter Text">
+                  <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary">Add Message</button>
+                  </span>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="panel-body">
+            <div class="row" ng-repeat="message in messages | orderBy:'':true">
+              <div class="col-md-12">
+                <form class="form" role="form">
+                  <div class="input-group">
+                    <input type="text" 
+                           ng-model="message.text" 
+                           class="form-control" 
+                           ng-change="messages.$save(message)" >
+                    <span class="input-group-btn"> 
+                      <button class="btn btn-danger" type="button" ng-click="messages.$remove(message)">&times;</button>
+                    </span>
+                  </div>
+                  <br>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
     </li>
   </ul>
 

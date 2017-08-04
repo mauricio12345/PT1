@@ -17,6 +17,6 @@ angular.module('plataformaApp')
     $( document ).ready(function(){
         $('.button-collapse').sideNav();
         $('.button-collapse').sideNav('hide');
-      $('.dropdown-button').dropdown({ hover: true, constrain_width: true, belowOrigin: true, alignment: 'right' });
+        s$('.dropdown-button').dropdown({ hover: true, constrain_width: true, belowOrigin: true, alignment: 'right' });
       });
   });

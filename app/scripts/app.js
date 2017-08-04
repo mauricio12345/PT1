@@ -18,8 +18,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'chart.js'
-  ])
+    'chart.js'  ])
+  
   .config(function ($routeProvider,ChartJsProvider) {
     $routeProvider
       .when('/', {
