@@ -93,4 +93,9 @@ body {
 .map-container iframe.clicked{
   pointer-events: auto;
 }
+/*.video-container{
+  width: 256px;
+  height: 250px;
+  margin: 30px 0 30px;
 }
+}*/

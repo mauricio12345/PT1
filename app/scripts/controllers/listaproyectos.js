@@ -30,8 +30,23 @@ angular.module('plataformaApp')
     messagingSenderId: "620933575940"
   };
   firebase.initializeApp(config);
- 
+  var databaseService = firebase.database();
+  var referencia = databaseService.ref('proyectos');
+  $scope.agregarProyecto=function(){
   
+  
+  referencia.set({
+  campoTest: 'valor del test',
+  ahora: new Date().getTime()
+  })
+  .then(function() {
+            console.log('dato almacenado correctamente');
+        })
+        .catch(function(error) {
+            console.log('detectado un error', error);
+        });
+ 
+  }
 
     var vm=this;
     vm.menutemplate={
