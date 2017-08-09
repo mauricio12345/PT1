@@ -107,6 +107,16 @@ angular
         controller: 'EbarrioCtrl',
         controllerAs: 'ebarrio'
       })
+      .when('/conexion.php', {
+        templateUrl: 'views/conexion.php',
+        controller: 'ConexionPhpCtrl',
+        controllerAs: 'conexion.php'
+      })
+      .when('/usuarios', {
+        templateUrl: 'views/usuarios.html',
+        controller: 'UsuariosCtrl',
+        controllerAs: 'usuarios'
+      })
       .otherwise({
         redirectTo: '/'
       });

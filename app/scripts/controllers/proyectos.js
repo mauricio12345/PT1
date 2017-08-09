@@ -14,6 +14,14 @@ angular.module('plataformaApp')
       'AngularJS',
       'Karma'
     ];
+
+  // $scope.importar=function(){
+  // $http.get("listar.php")
+  // .then(function (response){
+  //     $scope.proyecto = response.data.records;});
+
+  // $scope.importar();
+
     $(document).ready(function(){
       $('.slider').slider();
       // Pause slider

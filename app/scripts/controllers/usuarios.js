@@ -2,25 +2,31 @@
 
 /**
  * @ngdoc function
- * @name plataformaApp.controller:RegistroCtrl
+ * @name plataformaApp.controller:UsuariosCtrl
  * @description
- * # RegistroCtrl
+ * # UsuariosCtrl
  * Controller of the plataformaApp
  */
 angular.module('plataformaApp')
-  .controller('RegistroCtrl', function ($scope,$http) {
+  .controller('UsuariosCtrl', function ($scope,$http) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-    $scope.insert=function(){      
+    $scope.importar=function(){
+  $http.get("listar_user.php")
+  .then(function (response){
+      $scope.usuario = response.data.records;});     
+   }
+   $scope.importar();
+   $scope.insert=function(){      
             $http.post("insert_user.php", {
                 'nombre':$scope.nombre,
                 'apellido':$scope.apellido,
                 'contrasena':$scope.contrasena,
                 'correo':$scope.correo,
-                'nacimiento':$scope.nacimiento
+                // 'nacimiento':$scope.nacimiento
             }).then(function(response){
                     console.log("Data Inserted Successfully");
                     console.log($scope.nombre);
@@ -34,8 +40,9 @@ angular.module('plataformaApp')
 
                 });
             }
-    $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 150 // Creates a dropdown of 15 years to control year
-  });
+
+     var vm=this;
+    vm.menutemplate={
+    	url:'views/menu.html'
+    };
   });

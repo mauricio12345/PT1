@@ -34,31 +34,23 @@
 <table>
         <thead>
           <tr>
+              <th>ID Proyecto</th>
               <th>Nombre</th>
               <th>Descripción</th>
-              <th>Personas beneficiadas</th>
-              <th>Ubicar en el mapa</th>
+              <th>Region</th>
+              <th>Ciudad</th>
+              <th>Estado</th>
           </tr>
         </thead>
 
         <tbody>
-          <tr>
-            <td>Plaza de juegos</td>
-            <td>Construcción de plaza de juegos en terrenos que se estaban convirtiendo en micro basural</td>
-            <td>500 Personas</td>
-            <td><a class="waves-effect waves-red blue btn" onclick="Materialize.toast('Ubicación Proyectos', 4000, 'rounded')"  ng-href="/#!/ubicacion"><i class="material-icons left">location_on</i>Ubicar</a></td>
-          </tr>
-          <tr>
-            <td>Reparación Calzada Rio San Pedro</td>
-            <td>Reparacion de calles entre intersecciones con calle a hasta calle b</td>
-            <td>1000 Personas</td>
-            <td><a class="waves-effect waves-red blue btn" onclick="Materialize.toast('Ubicación Proyectos', 4000, 'rounded')" ng-href="/#!/ubicacion"><i class="material-icons left">location_on</i>Ubicar</a></td>
-          </tr>
-          <tr>
-            <td>Mejoramiento alumbrado publico</td>
-            <td>Reemplazo de las luminarias publicas de calle Rio Alvarez por luces led de bajo consumo e igual luminosidad</td>
-            <td>1500 Personas</td>
-            <td><a class="waves-effect waves-red blue btn" onclick="Materialize.toast('Ubicación Proyectos', 4000, 'rounded')" ng-href="/#!/ubicacion"><i class="material-icons left">location_on</i>Ubicar</a></td>
+          <tr ng-repeat="p in proyecto ">
+            <td>{{p.idproyecto}}</td>
+            <td>{{P.nombre}}</td>
+            <td>{{p.descripcion}}</td>
+            <td>{{p.region}}</td>
+            <td>{{p.ciudad}}</td>
+            <td>{{p.estado}}</td>
           </tr>
         </tbody>
       </table>
