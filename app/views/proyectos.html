@@ -31,7 +31,8 @@
       </li>
     </ul>
   </div>
-<table>
+  <a class="waves-effect waves-red grey btn" ng-href="/#!/postular"><i class="material-icons left">add_shopping_cart</i>Postular a proyecto</a>
+<table class="bordered">
         <thead>
           <tr>
               <th>ID Proyecto</th>
@@ -40,17 +41,19 @@
               <th>Region</th>
               <th>Ciudad</th>
               <th>Estado</th>
+              <th>Requisito</th>
           </tr>
         </thead>
 
         <tbody>
           <tr ng-repeat="p in proyecto ">
             <td>{{p.idproyecto}}</td>
-            <td>{{P.nombre}}</td>
+            <td>{{p.nombre}}</td>
             <td>{{p.descripcion}}</td>
             <td>{{p.region}}</td>
             <td>{{p.ciudad}}</td>
             <td>{{p.estado}}</td>
+            <td>{{p.requisito}}</td>
           </tr>
         </tbody>
       </table>

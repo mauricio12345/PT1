@@ -117,6 +117,11 @@ angular
         controller: 'UsuariosCtrl',
         controllerAs: 'usuarios'
       })
+      .when('/misproyectos', {
+        templateUrl: 'views/misproyectos.html',
+        controller: 'MisproyectosCtrl',
+        controllerAs: 'misproyectos'
+      })
       .otherwise({
         redirectTo: '/'
       });

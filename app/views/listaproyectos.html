@@ -1,6 +1,6 @@
 <div ng-include="listaProyectos.menutemplate.url"></div>
 
-      <!--   <div class="row">
+        <!-- <div class="row">
           <div class="input-field col s6">
             <form>
               <input type="text" ng-model="nuevoProyecto.nombre">
@@ -27,19 +27,23 @@
         <input type="text" ng-model="descripcion" name="descripcion">
         <label for="descripcion">Descripción</label>
       </div>
-      <div class="input-field col s3">
+      <div class="input-field col s6">
         <input type="text" ng-model="region" name="region">
         <label for="region">Región</label>
       </div>
-      <div class="input-field col s3">
+      <div class="input-field col s6">
         <input type="text" ng-model="ciudad" name="ciudad">
         <label for="ciudad">Ciudad</label>
       </div>
-      <div class="input-field col s3">
+      <div class="input-field col s6">
         <input type="text" ng-model="estado" name="estado">
         <label for="estado">Estado</label>
       </div>
-      <div class ="input-field col s3">
+      <div class="input-field col s6">
+        <input  type="text" data-length="500" ng-model="requisito" name="requisito">
+        <label for="requisito">Requisito</label>
+      </div>
+      <div class ="input col s6">
       <a class="waves-effect waves-light indigo btn"  target="_blank" href="https://www.google.com/maps/d/u/1/edit?authuser=1&mid=15tSC9UaEpqv8Ifqcxjff3DOZxF0&ll=-33.033426016470415%2C-71.57579894999998&z=13" >Agregar ubicacion proyectos</a>
       </div>
       <div class="input col s6">
@@ -50,7 +54,7 @@
       
     </div>
   </form>
-  <table>
+  <table class="bordered">
         <thead>
           <tr>
               <th>ID Proyecto</th>
@@ -59,17 +63,19 @@
               <th>Region</th>
               <th>Ciudad</th>
               <th>Estado</th>
+              <th>Requisito</th>
           </tr>
         </thead>
 
         <tbody>
           <tr ng-repeat="p in proyecto ">
             <td>{{p.idproyecto}}</td>
-            <td>{{P.nombre}}</td>
+            <td>{{p.nombre}}</td>
             <td>{{p.descripcion}}</td>
             <td>{{p.region}}</td>
             <td>{{p.ciudad}}</td>
             <td>{{p.estado}}</td>
+            <td>{{p.requisito}}</td>
           </tr>
         </tbody>
       </table>

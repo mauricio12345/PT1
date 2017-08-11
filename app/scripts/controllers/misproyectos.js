@@ -2,28 +2,28 @@
 
 /**
  * @ngdoc function
- * @name plataformaApp.controller:UsuariosCtrl
+ * @name plataformaApp.controller:MisproyectosCtrl
  * @description
- * # UsuariosCtrl
+ * # MisproyectosCtrl
  * Controller of the plataformaApp
  */
 angular.module('plataformaApp')
-  .controller('UsuariosCtrl', function ($scope,$http) {
+  .controller('MisproyectosCtrl', function ($scope,$http) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
     $scope.importar=function(){
-  $http.get("listar_usuario.php")
+  $http.get("misproyectos.php")
   .then(function (response){
-      $scope.usuario = response.data.records;});
-  }
-  console.log($scope.usuario);
-   $scope.importar();
- 
-     var vm=this;
+      $scope.proyecto = response.data.records;});
+
+     
+   }
+
+   var vm=this;
     vm.menutemplate={
-    	url:'views/menu.html'
+    url:'views/menu.html'
     };
   });

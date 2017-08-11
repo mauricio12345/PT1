@@ -28,6 +28,7 @@ angular.module('plataformaApp')
                     console.log($scope.contrasena);
                     console.log($scope.correo);
                     // console.log($scope.nacimiento);
+                    alert("Usuario registrado con exito");
                 },function(error){
                     alert("Sorry! Data Couldn't be inserted!");
                     console.error(error);

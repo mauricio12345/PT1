@@ -4,20 +4,18 @@
  <table>
         <thead>
           <tr>
-              <th>ID Usuario</th>
               <th>Nombre</th>
+              <!-- <th>Nombre</th> -->
               <th>Apellido</th>
               <th>Correo</th>
-              <th>Nacimiento</th>
           </tr>
         </thead>
 
         <tbody>
-          <tr ng-repeat="p in Usuario ">
-            <td>{{p.idusuario}}</td>
-            <td>{{P.nombre}}</td>
+          <tr ng-repeat="p in usuario ">
+            <td>{{p.nombre}}</td>
+           <!--  <td>{{P.idusuario}}</td> -->
             <td>{{p.apellido}}</td>
-            <td>{{p.contrasena}}</td>
             <td>{{p.correo}}</td>
           </tr>
         </tbody>

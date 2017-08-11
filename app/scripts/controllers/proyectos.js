@@ -8,12 +8,22 @@
  * Controller of the plataformaApp
  */
 angular.module('plataformaApp')
-  .controller('ProyectosCtrl', function () {
+  .controller('ProyectosCtrl', function ($scope,$http) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+     $scope.importar=function(){
+  $http.get("listar.php")
+  .then(function (response){
+      $scope.proyecto = response.data.records;});
+
+     
+
+     
+   }
+   $scope.importar();
 
   // $scope.importar=function(){
   // $http.get("listar.php")

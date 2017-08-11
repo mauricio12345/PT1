@@ -93,6 +93,10 @@ body {
 .map-container iframe.clicked{
   pointer-events: auto;
 }
+.fixed{
+position: fixed;
+width: 100%;
+}
 /*.video-container{
   width: 256px;
   height: 250px;

@@ -69,7 +69,8 @@ angular.module('plataformaApp')
                 'descripcion':$scope.descripcion,
                 'region':$scope.region,
                 'ciudad':$scope.ciudad,
-                'estado':$scope.estado
+                'estado':$scope.estado,
+                'requisito':$scope.requisito
             }).then(function(response){
                     console.log("Data Inserted Successfully");
                     console.log($scope.nombre);
