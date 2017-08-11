@@ -122,6 +122,11 @@ angular
         controller: 'MisproyectosCtrl',
         controllerAs: 'misproyectos'
       })
+      .when('/modificarvalores', {
+        templateUrl: 'views/modificarvalores.html',
+        controller: 'ModificarvaloresCtrl',
+        controllerAs: 'modificarvalores'
+      })
       .otherwise({
         redirectTo: '/'
       });

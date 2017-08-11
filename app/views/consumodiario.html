@@ -1,1 +1,23 @@
-<p>This is the consumodiario view.</p>
+<div ng-include="consumodiario.menutemplate.url"></div>
+
+
+<table class="bordered">
+	<caption>Costos Energía Electrica</caption>
+        <thead>
+          <tr>
+              <th>Valor Cargo Fijo</th>
+              <th>Valor KWh</th>
+              <th>Valor Transporte</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="p in valor ">
+            <td>{{p.cargofijo}}</td>
+            <td>{{p.valorkwh}}</td>
+            <td>{{p.transporte}}</td>
+            <td><a class="waves-effect waves-red grey btn" ng-href="/#!/modificarvalores"><i class="material-icons left">mode_edit</i>Modificar valores</a></td>
+          </tr>
+        </tbody>
+      </table>
+
