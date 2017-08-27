@@ -23,6 +23,7 @@ angular.module('plataformaApp')
                     console.log("Data Inserted Successfully");
                     console.log($scope.rut);
                     console.log($scope.idproyecto);
+                    alert("datos ingresados");
                 },function(error){
                     alert("Sorry! Data Couldn't be inserted!");
                     console.error(error);

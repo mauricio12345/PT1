@@ -16,15 +16,15 @@ angular.module('plataformaApp')
     ];
     
 
-     var config = {
-    apiKey: "AIzaSyA71DVboCSlOzIoy6qo4pMbeMU8JpGvXZw",
-    authDomain: "ebarrio-c0814.firebaseapp.com",
-    databaseURL: "https://ebarrio-c0814.firebaseio.com",
-    projectId: "ebarrio-c0814",
-    storageBucket: "ebarrio-c0814.appspot.com",
-    messagingSenderId: "620933575940"
-  };
-  firebase.initializeApp(config);
+  //    var config = {
+  //   apiKey: "AIzaSyA71DVboCSlOzIoy6qo4pMbeMU8JpGvXZw",
+  //   authDomain: "ebarrio-c0814.firebaseapp.com",
+  //   databaseURL: "https://ebarrio-c0814.firebaseio.com",
+  //   projectId: "ebarrio-c0814",
+  //   storageBucket: "ebarrio-c0814.appspot.com",
+  //   messagingSenderId: "620933575940"
+  // };
+  // firebase.initializeApp(config);
 
   // var proyectos= new Firebase('https://ebarrio-c0814.firebaseio.com/proyectos');
   //   $scope.proyectos= $firebase(proyectos);
@@ -78,6 +78,7 @@ angular.module('plataformaApp')
                     console.log($scope.region);
                     console.log($scope.ciudad);
                     console.log($scope.estado);
+                    alert("datos ingresados");
                 },function(error){
                     alert("Sorry! Data Couldn't be inserted!");
                     console.error(error);
