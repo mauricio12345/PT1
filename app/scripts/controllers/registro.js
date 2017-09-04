@@ -8,12 +8,54 @@
  * Controller of the plataformaApp
  */
 angular.module('plataformaApp')
-  .controller('RegistroCtrl', function ($scope,$http) {
+.factory('Usuarios', ['$resource', function ($resource) {
+        return $resource('http://localhost:8080/BarrioAPI/usuarios/:id', {id: "@_id"}, {
+            update: {method: "PUT", params: {id: "@_id"}}
+        })
+    }])
+  .controller('RegistroCtrl', function ($scope,$http,Usuarios,$route) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+    // var id = $route.id;
+
+    //     Usuarios.get({id: id}, function (data) {
+    //         $scope.usuario = data.response;
+    //     })
+
+    //     $scope.remove = function (id) {
+    //         Usuarios.delete({id: id}).$promise.then(function (data) {
+    //             if (data.response) {
+    //                 $route.reload();
+    //             }
+    //         })
+    //     };
+
+    //     $scope.settings = {
+    //         pageTitle: "Agregar proyecto",
+    //         action: "Agregar"
+    //     };
+
+    //     $scope.usuario = {
+    //         idusuario: "",
+    //         nombre: "",
+    //         apellido: "",
+    //         contrasena: "",
+    //         correo: "",
+    //         nacimiento: ""
+    //     };
+      
+
+    //     $scope.submit = function () {
+    //         Usuarios.save({usuario: $scope.usuario}).$promise.then(function (data) {
+    //             if (data.response) {
+    //                 angular.copy({}, $scope.usuario);
+    //                 $scope.settings.success = "El Usuario ha sido creada correctamente!";
+    //             }
+    //         })
+       // };
     $scope.insert=function(){      
             $http.post("insert_user.php", {
                 'nombre':$scope.nombre,

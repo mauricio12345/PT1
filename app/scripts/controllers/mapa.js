@@ -15,6 +15,11 @@ angular.module('plataformaApp')
       'Karma',
       'uiGmapgoogle-maps'
     ];
+    // $scope.email = sesionesControl.get("email");
+    // $scope.logout = function(){
+    //     authUsers.logout();
+    // };
+
     var vm=this;
     vm.menutemplate={
     	url:'views/menu.html'
@@ -37,6 +42,8 @@ angular.module('plataformaApp')
     // Previous slide
     $('.slider').slider('prev');
       });
-  });
+  })
+   
+
   });
 

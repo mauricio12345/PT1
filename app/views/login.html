@@ -1,0 +1,22 @@
+<form>
+    <fieldset>
+        <legend>Formulario de login con AngularJS y codeigniter</legend>
+
+        <div class="row">
+            <div ng-show="flash">
+                <div data-alert class="alert-box alert round">{{ flash }}</div>
+            </div>
+            <div class="large-12 columns">
+                <label>Email</label>
+                <input type="email" placeholder="Introduce tu email" ng-model="user.email">
+            </div>
+            <div class="large-12 columns">
+                <label>Password</label>
+                <input type="password" placeholder="Introduce tu password" ng-model="user.password">
+            </div>
+
+            <button ng-click="login(user)" class="button expand round">Login</button>
+        </div>
+
+    </fieldset>
+</form>
