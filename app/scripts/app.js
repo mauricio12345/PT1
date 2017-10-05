@@ -18,7 +18,9 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'chart.js'  ])
+    'chart.js',
+    'toaster'
+    ])
   
   .config(function ($routeProvider,ChartJsProvider) {
     $routeProvider
@@ -131,6 +133,26 @@ angular
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
         controllerAs: 'login'
+      })
+      .when('/inforproyecto', {
+        templateUrl: 'views/inforproyecto.html',
+        controller: 'InforproyectoCtrl',
+        controllerAs: 'inforproyecto'
+      })
+      // .when('/detalless', {
+      //   templateUrl: 'views/detalles.html',
+      //   controller: 'DetallesCtrl',
+      //   controllerAs: 'detalles'
+      // })
+      .when('/detalles', {
+        templateUrl: 'views/detalles.html',
+        controller: 'DetallesCtrl',
+        controllerAs: 'detalles'
+      })
+      .when('/destallesproyecto', {
+        templateUrl: 'views/destallesproyecto.html',
+        controller: 'DestallesproyectoCtrl',
+        controllerAs: 'destallesproyecto'
       })
       .otherwise({
         redirectTo: '/'

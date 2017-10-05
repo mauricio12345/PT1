@@ -1,74 +1,41 @@
 <div ng-include="proyectos.menutemplate.url"></div>
-<div class="slider">
-    <ul class="slides">
-      <li>
-        <img src="images/plaza.jpg"> <!-- random image -->
-        <div class="caption center-align ">
-          <h3>Creación de nuevas plazas para la comunidad</h3>
-          <h5 class="light white-text text-lighten-3 ">Antiguo terreno utilizado como basural, ahora es un punto de reunión.</h5>
+  <div class="container">
+  <div class="row">
+  <div class="col s4 m6">
+     <div ng-repeat="p in proyecto" class="card small">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="{{p.portada}}">
         </div>
-      </li>
-      <li>
-        <img src="images/juegos.jpg"> <!-- random image -->
-        <div class="caption left-align">
-          <h3>Nuevos juegos para niños</h3>
-          <h5 class="light white-text text-lighten-3">Renovación antiguos juegos oxidados, por juegos nuevos.</h5>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">{{p.nombre}}<i class="material-icons right">more_vert</i></span><a href="/#!/ubicacion">Ubicación Proyectos</a>
+          <a href="/#!/destallesproyecto">Detalles Proyecto</a> 
         </div>
-      </li>
-      <li>
-        <img src="images/luz.jpg"> <!-- random image -->
-        <div class="caption right-align">
-          <h3>Nueva luminaria pública</h3>
-          <h5 class="light white-text text-lighten-3">Cambio de antiguas ampolletas alogenas de alto consumo, por ampolletas led de bajo consumo.</h5>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Información<i class="material-icons right">close</i></span>
+          <li type="circle">Nombre: {{p.nombre}}</li>
+           <li type="circle">Descripcion: {{p.descripcion}}</li>
+           <li type="circle">Region: {{p.region}}</li>
+           <li type="circle">Ciudad: {{p.ciudad}}</li>
+           <li type="circle">Estado: {{p.estado}}</li>
+           <li type="circle">Requsito: {{p.requisito}}</li>
         </div>
-      </li>
-      <li>
-        <img src="images/pavimento.jpg"> <!-- random image -->
-        <div class="caption center-align">
-          <h3>Repavimentación de calles</h3>
-          <h5 class="light white-text text-lighten-3">Reparación de calles que se encontraban con hoyos y grietas.</h5>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <a class="waves-effect waves-red grey btn" ng-href="/#!/postular"><i class="material-icons left">add_shopping_cart</i>Postular a proyecto</a>
-<table class="bordered">
-        <thead>
-          <tr>
-              <th>ID Proyecto</th>
-              <th>Nombre</th>
-              <th>Descripción</th>
-              <th>Region</th>
-              <th>Ciudad</th>
-              <th>Estado</th>
-              <th>Requisito</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr ng-repeat="p in proyecto ">
-            <td>{{p.idproyecto}}</td>
-            <td>{{p.nombre}}</td>
-            <td>{{p.descripcion}}</td>
-            <td>{{p.region}}</td>
-            <td>{{p.ciudad}}</td>
-            <td>{{p.estado}}</td>
-            <td>{{p.requisito}}</td>
-          </tr>
-        </tbody>
-      </table>
-            
-
+      </div>
+      </div>
+       <!-- <div div class="collection" ng-repeat="p in proyecto" >   
+      <a class="collection-item" ng-click='cambiarMenu()'><i class="material-icons">open_in_new</i>{{p.nombre}}</a> 
+      <ul ng-show='menuState.show'>
+           <li type="circle">Nombre: {{p.nombre}}</li>
+           <li type="circle">Descripcion: {{p.descripcion}}</li>
+           <li type="circle">Region: {{p.region}}</li>
+           <li type="circle">Ciudad: {{p.ciudad}}</li>
+           <li type="circle">Estado: {{p.estado}}</li>
+           <li type="circle">Requsito: {{p.requisito}}</li>
+      </ul>
+      </div>
+</div>
+</div> -->
           <!-- Modal Trigger -->
-  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
-
+  <!-- <a class="waves-effect waves-light btn modal-trigger" href="/#!/inforproyecto">Modal</a> -->
+  
   <!-- Modal Structure -->
- <!--  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>   -->
+  

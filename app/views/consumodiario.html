@@ -5,20 +5,22 @@
 	<caption>Costos Energía Electrica</caption>
         <thead>
           <tr>
-              <th>Valor Cargo Fijo</th>
-              <th>Valor KWh</th>
-              <th>Valor Transporte</th>
+              <th>Nombre</th>
+              <th>Fecha</th>
+              <th>Consumo</th>
           </tr>
         </thead>
 
         <tbody>
-          <tr ng-repeat="p in valor ">
-            <td>{{p.cargofijo}}</td>
-            <td>{{p.valorkwh}}</td>
-            <td>{{p.transporte}}</td>
-            <td><a class="waves-effect waves-red grey btn" ng-href="/#!/modificarvalores"><i class="material-icons left">mode_edit</i>Modificar valores</a></td>
-            <td><a class="waves-effect waves-red grey btn" ng-href="/drawchart.php"><i class="material-icons left"></i>Ver grafico en tiempo real</a></td>
-          </tr>
+          <tr ng-repeat="p in valor | orderBy:'nombre' ">
+            <td>{{p.nombre}}</td>
+            <td>{{p.fecha}}</td>
+            <td>{{p.kwh}}</td>
         </tbody>
       </table>
+
+
+
+<div style="width: 600px; height: 400px; margin: 0 auto">
+    <div id="container-speed" style="width: 300px; height: 200px; float: left"></div>
 

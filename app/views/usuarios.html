@@ -34,10 +34,11 @@
 <ul class="collection" ng-repeat= "u in usuario">
     <li class="collection-item avatar">
       <img src="images/office.jpg" alt="" class="circle">
-      <span class="title">{{u.nombre}}</span>
-      <p>{{u.apellido}} <br>
-         {{u.correo}}
+      <span class="title">{{u.nombre}}{{u.apellido}} </span>
+      <p>
+         Correo: {{u.correo}}<br>
+         Meta de consumo: {{u.meta}}
       </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">info</i></a>
+      <a href="#!/detalles" class="secondary-content"><i class="material-icons">info</i></a>
     </li>
-
+   

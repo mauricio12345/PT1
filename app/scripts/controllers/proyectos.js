@@ -13,7 +13,7 @@ angular.module('plataformaApp')
             update: {method: "PUT", params: {id: "@_id"}}
         })
     }])
-  .controller('ProyectosCtrl', function ($scope,$http,Proyectos,$route) {
+  .controller('ProyectosCtrl', function ($scope,$http,Proyectos,$route, toaster) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -27,10 +27,16 @@ angular.module('plataformaApp')
   //     $scope.proyecto = response.data.records;});
 
   // $scope.importar();
+  $scope.menuState = {}
+  $scope.menuState.show = false;
+  $scope.cambiarMenu = function() {
+  $scope.menuState.show = !$scope.menuState.show;
+};
    var id = $route.id;
 
         Proyectos.get({id: id}, function (data) {
             $scope.proyecto = data.response;
+            toaster.pop('succes', "OK", "Proyectos cargados correctamente");
         })
 
         $scope.remove = function (id) {
@@ -39,6 +45,14 @@ angular.module('plataformaApp')
                     $route.reload();
                 }
             })
+        };
+
+        $scope.find=function(id){
+          Proyectos.get({id:id}).$promise.then(function(data){
+            if(data.response){
+              $route.reload();
+            }
+          })
         };
 
         $scope.settings = {
@@ -83,5 +97,8 @@ angular.module('plataformaApp')
      $(document).ready(function(){
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
     $('.modal').modal();
+  });
+       $(document).ready(function(){
+    $('.collapsible').collapsible();
   });
   });

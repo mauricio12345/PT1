@@ -9,7 +9,7 @@
  */
 angular.module('plataformaApp')
 .factory('Usuarios', ['$resource', function ($resource) {
-        return $resource('http://localhost:8080/BarrioAPI/usuarios/:id', {id: "@_id"}, {
+        return $resource('http://localhost:8080/BarrioAPI/participantes/:id', {id: "@_id"}, {
             update: {method: "PUT", params: {id: "@_id"}}
         })
     }])

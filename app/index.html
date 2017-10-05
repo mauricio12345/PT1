@@ -13,6 +13,7 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/toaster.css">
     <!-- endbuild -->
     
 <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
@@ -21,7 +22,12 @@
  
 </script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="https://rawgit.com/aterrien/jQuery-Knob/master/dist/jquery.knob.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
   </head>
   <body ng-app="plataformaApp">
     <!--[if lte IE 8]>
@@ -116,11 +122,13 @@
     <script src="bower_components/angular-google-chart/ng-google-chart.js"></script>
     <script src="bower_components/chart.js/dist/Chart.js"></script>
     <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+    <script src="bower_components/jquery-knob/js/jquery.knob.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/toaster.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/mapa.js"></script>
@@ -143,6 +151,9 @@
         <script src="scripts/controllers/misproyectos.js"></script>
         <script src="scripts/controllers/modificarvalores.js"></script>
         <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/inforproyecto.js"></script>
+        <script src="scripts/controllers/detalles.js"></script>
+        <script src="scripts/controllers/destallesproyecto.js"></script>
         <!-- endbuild -->
 </body>
 </html>
