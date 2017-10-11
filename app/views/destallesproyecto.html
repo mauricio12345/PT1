@@ -1,5 +1,5 @@
 <div ng-include="destallesproyecto.menutemplate.url"></div>
-<h2 ng-repeat="p in proyecto | limitTo: 1">{{p.nombre}}</h2>
+<h2>{{proyecto.nombre}}</h2>
 <div class="row"> 
 <div class="col s4">
 	<h5>Participantes</h5>
@@ -11,15 +11,15 @@
     </ul>
 </div>
 
-	<div class="col s4">
+	<div  class="col s4">
     <h5 >Estado del proyecto</h5>
-    <p ng-repeat="a in proyecto | limitTo : 1">{{a.estado}}</p>
+    <p>{{proyecto.estado}}</p>
     <!-- <input type="text" value="55" class="dial" data-width="200" data-thickness=".32" data-fgColor="#008BE8" data-bgColor="#EEEEEE" data-cursor=false data-displayInput="true" data-readOnly=true > -->
     <h5>Porcentaje de avance del proyecto</h5>
-    <input type="text" value="67" class="dial">
+    <input ng-controller="DestallesproyectoCtrl" type="text" value="67" class="dial">
   
 </div>
-<div class= "col s4"><div class="map-container">
+<div ng-controller="DestallesproyectoCtrl" class= "col s4"><div class="map-container">
 	<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/d/u/0/embed?mid=1Gv3T4EK3dBZIzPsG_xqjlSbjaA0" width="100%" height="480"></iframe>
 </div>
 

@@ -46,6 +46,16 @@ $(document).ready(function() {
         'release':function(v) {$("p").text(v);},
         'readOnly':true
       });
+       $('.line').knob({
+        'min':0,
+        'max':100,
+        'width':250,
+        'height':250,
+        'displayInput':true,
+        'fgColor':"#FF0000",
+        'release':function(v) {$("p").text(v);},
+        'readOnly':true
+      });
     })
 
     var vm=this;

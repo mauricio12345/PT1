@@ -1,6 +1,5 @@
-<div ng-include="listaProyectos.menutemplate.url"></div>
- <h1>{{$scope.settings.pageTitle}}</h1>
- <p ng-show="$parent.settings.success" class="alert alert-success">{{$scope.settings.success}}</p>
+<div ng-include="listaproyectos.menutemplate.url"></div>
+ <!-- <p ng-show="$parent.settings.success" class="alert alert-success">{{$scope.settings.success}}</p> -->
 
          
   <form class="col s12">
@@ -23,11 +22,19 @@
       </div>
       <div class="input-field col s6">
         <input type="text" ng-model="proyecto.estado" name="estado">
-        <label for="estado">Estado</label>
+        <label for="estado">Estado (Disponible, Postulación, Adjudicado, Terminado)</label>
       </div>
       <div class="input-field col s6">
         <input  type="text" data-length="500" ng-model="proyecto.requisito" name="requisito">
         <label for="requisito">Requisito</label>
+      </div>
+      <div class="input-field col s6">
+        <input  type="text" data-length="500" ng-model="proyecto.ahorro" name="meta">
+        <label for="meta">Meta de ahorro</label>
+      </div>
+      <div class="input-field col s6">
+        <input  type="text" data-length="500" ng-model="proyecto.duracion" name="duracion">
+        <label for="duracion">Duración en meses</label>
       </div>
       <div class ="input col s6">
       <a class="waves-effect waves-light indigo btn"  target="_blank" href="https://www.google.com/maps/d/u/1/edit?authuser=1&mid=15tSC9UaEpqv8Ifqcxjff3DOZxF0&ll=-33.033426016470415%2C-71.57579894999998&z=13" >Agregar ubicacion proyectos</a>
@@ -40,28 +47,21 @@
       
     </div>
   </form>
-  <table class="bordered">
+  <table ng-controller="HomeCtrl" class="bordered">
         <thead>
           <tr>
-              <th>ID Proyecto</th>
-              <th>Nombre</th>
-              <th>Descripción</th>
-              <th>Region</th>
-              <th>Ciudad</th>
-              <th>Estado</th>
-              <th>Requisito</th>
+              
           </tr>
         </thead>
 
         <tbody>
-          <tr ng-repeat="p in proyecto ">
-            <td>{{p.idproyecto}}</td>
+          <tr ng-repeat="p in proyectos ">
             <td>{{p.nombre}}</td>
-            <td>{{p.descripcion}}</td>
-            <td>{{p.region}}</td>
-            <td>{{p.ciudad}}</td>
-            <td>{{p.estado}}</td>
-            <td>{{p.requisito}}</td>
+            <td><a ng-href="#!/destallesproyecto/{{p.idproyecto}}"><i class="material-icons left">info</i> </a>{{p.id}}</td>
+            <td><a ng-click="remove(p.idproyecto)"><i class="material-icons left">delete</i> </a>
+                     </td>
+            <td><a href="#!/editar/{{p.idproyecto}}"><i class="material-icons left">edit</i> </a>
+                    <a ng-click="submit(p.idproyecto)"></td>
           </tr>
         </tbody>
       </table>

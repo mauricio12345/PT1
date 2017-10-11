@@ -29,9 +29,9 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
+      .when('/about/:id', {
         templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
+        controller: 'ViewCtrl',
         controllerAs: 'about'
       })
       .when('/mapa', {
@@ -39,9 +39,14 @@ angular
         controller: 'MapaCtrl',
         controllerAs: 'mapa'
       })
+      // .when('/registro', {
+      //   templateUrl: 'views/registro.html',
+      //   controller: 'RegistroCtrl',
+      //   controllerAs: 'registro'
+      // })
       .when('/registro', {
         templateUrl: 'views/registro.html',
-        controller: 'RegistroCtrl',
+        controller: 'AddUserCtrl',
         controllerAs: 'registro'
       })
       .when('/exito', {
@@ -51,7 +56,7 @@ angular
       })
       .when('/proyectos', {
         templateUrl: 'views/proyectos.html',
-        controller: 'ProyectosCtrl',
+        controller: 'ViewCtrl',  //
         controllerAs: 'proyectos'
       })
       .when('/postular', {
@@ -89,9 +94,9 @@ angular
         controller: 'NavbarCtrl',
         controllerAs: 'navbar'
       })
-      .when('/listaProyectos', {
+      .when('/listaproyectos', {
         templateUrl: 'views/listaproyectos.html',
-        controller: 'ListaproyectosCtrl',
+        controller: 'CreateCtrl',
         controllerAs: 'listaProyectos'
       })
       .when('/consumodiario', {
@@ -149,10 +154,15 @@ angular
         controller: 'DetallesCtrl',
         controllerAs: 'detalles'
       })
-      .when('/destallesproyecto', {
+      .when('/destallesproyecto/:id', {
         templateUrl: 'views/destallesproyecto.html',
-        controller: 'DestallesproyectoCtrl',
+        controller: 'ViewCtrl',
         controllerAs: 'destallesproyecto'
+      })
+      .when('/editar/:id', {
+        templateUrl: 'views/editar.html',
+        controller: 'EditCtrl',
+        controllerAs: 'editar'
       })
       .otherwise({
         redirectTo: '/'
@@ -164,4 +174,163 @@ angular
       ChartJsProvider.setOptions('line',{
       	showlines: false
       });
-  });
+  })
+.controller('HomeCtrl', ['$scope', 'Proyectos', '$route', function ($scope, Proyectos, $route) {
+  var vm=this;
+    vm.menutemplate={
+      url:'views/menu.html'
+    };
+        Proyectos.get(function (data) {
+            $scope.proyectos = data.response;
+        })
+
+        $scope.remove = function (id) {
+            Proyectos.delete({id: id}).$promise.then(function (data) {
+                if (data.response) {
+                    $route.reload();
+                }
+            })
+        }
+    }])
+
+    .controller('CreateCtrl', ['$scope', 'Proyectos', function ($scope, Proyectos) {
+      var vm=this;
+    vm.menutemplate={
+      url:'views/menu.html'
+    };
+        $scope.settings = {
+            pageTitle: "Agregar Proyecto",
+            action: "Agregar"
+        };
+
+        
+        $scope.proyecto = {
+            idproyecto: "",
+            descripcion: "",
+            region: "",
+            ciudad: "",
+            estado: "",
+            requisito: "",
+            ahorro: "",
+            duracion: ""
+        };
+
+        $scope.submit = function () {
+            Proyectos.save({proyecto: $scope.proyecto}).$promise.then(function (data) {
+                if (data.response) {
+                    angular.copy({}, $scope.proyecto);
+                    $scope.settings.success = "El Proyecto ha sido creado correctamente!";
+                    alert("El proyecto ha sido guardado con exito");
+                     window.location.href='#!/listaproyectos';
+                }
+                else{
+                  alert("no se pudo guardar el proyecto");
+                }
+            })
+        }
+    }])
+
+    .controller('EditCtrl', ['$scope', 'Proyectos', '$routeParams', function ($scope, Proyectos, $routeParams) {
+      var vm=this;
+    vm.menutemplate={
+      url:'views/menu.html'
+    };
+        $scope.settings = {
+            pageTitle: "Editar Proyectos",
+            action: "Editar"
+        };
+
+        var id = $routeParams.id;
+
+        Proyectos.get({id: id}, function (data) {
+            $scope.proyecto = data.response;
+        });
+
+        $scope.submit = function () {
+            Proyectos.update({proyecto: $scope.proyecto}, function (data) {
+                $scope.settings.success = "El usuario ha sido editada correctamente!";
+                alert("El proyecto ha sido editado con exito");
+                     window.location.href='#!/listaproyectos';
+            });
+        }
+    }])
+
+    .controller('AddUserCtrl', ['$scope', 'Proyectos', 'Usuarios', '$route', function ($scope, Proyectos, Usuarios, $route) {
+      var vm=this;
+    vm.menutemplate={
+      url:'views/menu.html'
+    };
+        Usuarios.get(function (data) {
+            $scope.proyecto = data.response;
+        })
+
+        $scope.settings = {
+            pageTitle: "Agregar usuario a un Proyecto",
+            action: "Agregar"
+        };
+
+        $scope.usuario = {
+            idusuario: "",
+            nombre: "",
+            apellido: "",
+            contrasena: "",
+            correo: ""
+        };
+
+        $scope.submit = function () {
+            Usuarios.save({usuario: $scope.usuario}).$promise.then(function (data) {
+                if (data.response) {
+                    angular.copy({}, $scope.proyecto);
+                    $scope.settings.success = "El usuario ha sido vinculado correctamente!";
+                }
+            })
+        }
+    }])
+
+    .controller('ViewCtrl', ['$scope', 'Proyectos', 'Usuarios', 'Participante','$routeParams', '$route', function ($scope, Proyectos, Usuarios, Participante, $routeParams, $route) {
+      var vm=this;
+    vm.menutemplate={
+      url:'views/menu.html'
+    };
+        var id = $routeParams.id;
+
+        Usuarios.get({id: id}, function (data) {
+            $scope.usuario = data.response;
+        });
+
+        Proyectos.get({id: id}, function (data) {
+            console.log(data.response);
+            $scope.proyecto = data.response;
+        });
+
+        Participante.get({id: id}, function (data) {
+            console.log(data.response);
+            $scope.participante = data.response;
+        })
+
+        $scope.remove = function (id) {
+            Proyectos.delete({id: id}).$promise.then(function (data) {
+                if (data.response) {
+                    $route.reload();
+                }
+            })
+        }
+    }])
+
+    .factory('Usuarios', ['$resource', function ($resource) {
+        return $resource('http://localhost:8080/BarrioAPI/usuarios/id', {id: "@_id"}, {
+            update: {method: "PUT", params: {id: "@_id"}}
+        })
+    }])
+
+    .factory('Proyectos', ['$resource', function ($resource) {
+        return $resource('http://localhost:8080/BarrioAPI/proyectos/:id', {id: "@_id"}, {
+            update: {method: "PUT", params: {id: "@_id"}}
+        })
+    }])
+    .factory('Participante', ['$resource', function ($resource) {
+        return $resource('http://localhost:8080/BarrioAPI/participantes/', {id: "@_id"}, {
+            update: {method: "PUT", params: {id: "@_id"}}
+        })
+    }])
+

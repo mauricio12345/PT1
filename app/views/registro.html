@@ -3,29 +3,29 @@
 	    <form class="col s12">
 	      <div class="row">
 	        <div class="input-field col s6">
-	          <input type="text" ng-model="nombre" name="nombre" class="validate">
+	          <input type="text" ng-model="usuario.nombre" name="nombre" class="validate">
 	          <label for="nombre">Nombre</label>
 	        </div>
 	        <div class="input-field col s6">
-	          <input type="text" ng-model="apellido" name="apellido" class="validate">
+	          <input type="text" ng-model="usuario.apellido" name="apellido" class="validate">
 	          <label for="apellido">Apellido</label>
 	        </div>
 	      </div>
 	      <div class="row">
 	        <div class="input-field col s4">
-	          <input type="password" ng-model="contrasena" name="contrasena" class="validate">
+	          <input type="password" ng-model="usuario.contrasena" name="contrasena" class="validate">
 	          <label for="contrasena">Contraseña</label>
 	        </div>
 	        <div class="input-field col s4">
-	          <input  type="email" ng-model="correo" name="correo" class="validate">
+	          <input  type="email" ng-model="usuario.correo" name="correo" class="validate">
 	          <label for="correo">Email</label>
 	        </div>
 	        <div class="input-field col s4">
-	        	<input  type="date" ng-model="nacimiento" name="nacimiento" class="datepicker">
+	        	<input  type="date" ng-model="usuario.nacimiento" name="nacimiento" class="datepicker">
 	        	<label for="nacimiento">Fecha Nacimiento</label>
 	        </div>
 	         <div class="input col s6">
-      			<input class="btn waves-effect waves-yellow red" type="button" value="Registro" ng-click="submit()">
+      			<input class="btn waves-effect waves-yellow red" type="button" value="Registro" ng-click="submit($parent.usuario)">
       		</div>
       		<div class="input col s6">
       			<a class="btn waves-effect waves-red green" href="/">Volver</a>

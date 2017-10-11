@@ -27,56 +27,57 @@ angular.module('plataformaApp')
   //     $scope.proyecto = response.data.records;});
 
   // $scope.importar();
-  $scope.menuState = {}
-  $scope.menuState.show = false;
-  $scope.cambiarMenu = function() {
-  $scope.menuState.show = !$scope.menuState.show;
-};
-   var id = $route.id;
+  
+//   $scope.menuState = {}
+//   $scope.menuState.show = false;
+//   $scope.cambiarMenu = function() {
+//   $scope.menuState.show = !$scope.menuState.show;
+// };
+//    var id = $route.id;
 
-        Proyectos.get({id: id}, function (data) {
-            $scope.proyecto = data.response;
-            toaster.pop('succes', "OK", "Proyectos cargados correctamente");
-        })
+//         Proyectos.get({id: id}, function (data) {
+//             $scope.proyecto = data.response;
+//             toaster.pop('succes', "OK", "Proyectos cargados correctamente");
+//         })
 
-        $scope.remove = function (id) {
-            Proyectos.delete({id: id}).$promise.then(function (data) {
-                if (data.response) {
-                    $route.reload();
-                }
-            })
-        };
+//         $scope.remove = function (id) {
+//             Proyectos.delete({id: id}).$promise.then(function (data) {
+//                 if (data.response) {
+//                     $route.reload();
+//                 }
+//             })
+//         };
 
-        $scope.find=function(id){
-          Proyectos.get({id:id}).$promise.then(function(data){
-            if(data.response){
-              $route.reload();
-            }
-          })
-        };
+//         $scope.find=function(id){
+//           Proyectos.get({id:id}).$promise.then(function(data){
+//             if(data.response){
+//               $route.reload();
+//             }
+//           })
+//         };
 
-        $scope.settings = {
-            pageTitle: "Agregar proyecto",
-            action: "Agregar"
-        };
+//         $scope.settings = {
+//             pageTitle: "Agregar proyecto",
+//             action: "Agregar"
+//         };
 
-        $scope.proyecto = {
-            idproyecto: "",
-            descripcion: "",
-            region: "",
-            ciudad: "",
-            estado: "",
-            requisito: ""
-        };
+//         $scope.proyecto = {
+//             idproyecto: "",
+//             descripcion: "",
+//             region: "",
+//             ciudad: "",
+//             estado: "",
+//             requisito: ""
+//         };
 
-        $scope.submit = function () {
-            Proyectos.save({proyecto: $scope.proyecto}).$promise.then(function (data) {
-                if (data.response) {
-                    angular.copy({}, $scope.proyecto);
-                    $scope.settings.success = "El proyecto ha sido creada correctamente!";
-                }
-            })
-        };
+//         $scope.submit = function () {
+//             Proyectos.save({proyecto: $scope.proyecto}).$promise.then(function (data) {
+//                 if (data.response) {
+//                     angular.copy({}, $scope.proyecto);
+//                     $scope.settings.success = "El proyecto ha sido creada correctamente!";
+//                 }
+//             })
+//         };
 
     $(document).ready(function(){
       $('.slider').slider();
