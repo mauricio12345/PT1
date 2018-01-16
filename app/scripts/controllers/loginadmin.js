@@ -2,21 +2,21 @@
 
 /**
  * @ngdoc function
- * @name frontEbarrioApp.controller:LoginCtrl
+ * @name frontEbarrioApp.controller:LoginadminCtrl
  * @description
- * # LoginCtrl
+ * # LoginadminCtrl
  * Controller of the frontEbarrioApp
  */
 angular.module('frontEbarrioApp')
-  .controller('LoginCtrl', function ($scope,$http,$rootScope) {
+  .controller('LoginadminCtrl', function ($scope,$http,$rootScope) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-     $scope.insertdata=function(){
+    $scope.insertdata=function(){
     console.log("triggered");
- $http.post("login.php",{'theusername':$scope.user, 'thepassword':$scope.pswd})
+ $http.post("loginadmin.php",{'theusername':$scope.user, 'thepassword':$scope.pswd})
 
 
   .then(function(data, status, headers, config) {
@@ -27,7 +27,7 @@ angular.module('frontEbarrioApp')
           console.log(data.config.data.theusername);
           $rootScope.usuario=data.config.data.theusername;
           
-          window.location.href = '/#!/inicio';
+          window.location.href = '/#!/casillaproyectos';
         } else {
           $scope.errorMsg = "Usuario o Contraseña no validos";
         }
@@ -43,4 +43,3 @@ angular.module('frontEbarrioApp')
   console.log($scope.user);
 
   });
-

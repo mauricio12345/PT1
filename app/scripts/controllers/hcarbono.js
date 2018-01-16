@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name plataformaApp.controller:HcarbonoCtrl
+ * @name frontEbarrioApp.controller:HcarbonoCtrl
  * @description
  * # HcarbonoCtrl
- * Controller of the plataformaApp
+ * Controller of the frontEbarrioApp
  */
-angular.module('plataformaApp')
+angular.module('frontEbarrioApp')
   .controller('HcarbonoCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

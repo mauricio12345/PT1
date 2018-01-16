@@ -1,37 +1,63 @@
-
-
-<div ng-include="detalles.menutemplate.url"></div>
-<h1 ng-repeat="m in meta">Mi meta de consumo mensual es : {{m.meta}} Kwh</h1>
-<div class="row"> 
-<div class="col s4" ng-repeat="m in meta">
-	<h5>Consumo mayor a la meta mensual</h5>
-<ul ng-repeat="p in detalle | orderBy:'fecha'" ng-if="p.kwatt >= m.meta" class="collection">
-      <!-- <li style="color:red;" class="collection-item">Este mes no se cumplio con la meta de consumo</li>
-      <li style="color:red;" class="collection-item">{{p.usuario_idusuario}}</li> -->
-      <li style="color:red;" class="collection-item">Mes: {{p.fecha}}</li>
-      <li style="color:red;" class="collection-item">Consumo: {{p.kwatt}} Kwh</li>
-    </ul>
-    <h5>Consumo menor a la meta mensual</h5>
- <ul ng-repeat="p in detalle | orderBy:'fecha'" ng-if="p.kwatt <= m.meta" class="collection">
- 	  <!-- <li style="color:green;" class="collection-item">Este mes se cumplio con la meta de consumo</li>	
-      <li style="color:green;" class="collection-item">{{p.usuario_idusuario}}</li> -->
-      <li style="color:green;" class="collection-item">Mes: {{p.fecha}}</li>
-      <li style="color:green;" class="collection-item">Consumo: {{p.kwatt}} Kwh</li>
-    </ul>   
+<div ng-controller="DetallesCtrl" >
+	<div ng-include="crearproyecto.menutemplate.url"></div>
 </div>
+<div class="container">
+	
+	<h3 style="color: green">Detalles proyecto: {{proyectos.nombre}}</h3>
+	<div class="row">
+		<div class="input-field col s6">
+			<p>Identificador proyecto:{{proyectos.idproyecto}}</p> 
+		</div>
+		<div class="input-field col s6">
+		<p>Responsable de proyecto: {{proyectos.razonsocial}}</p>
+		</div>
+		<div class="input-field col s6">
+			<p>Rut Responsable: {{proyectos.rutsocial}}</p>
+		</div>
+		<div class="input-field col s6">
+			<p>Tipo de organizacion: {{proyectos.organizacion}}</p>
+		</div>
+		<div class="input-field col s6">
+			<p>Telefono de contacto: {{proyectos.telefono}}</p>
+		</div>
+		<div class="input-field col s6">
+			<p>Mail de contacto: {{proyectos.usuario}}</p>
+		</div>
+		<div class="input-field col s6">
+			<p>Proyecto contempla cobro a beneficiarios? : {{proyectos.tarifa}}</p>
+		</div>
+		<div class="input-field col s6">
+			<p>Tipo de destinatarios del proyecto: {{proyecto.destinatario}}</p>
+		</div>
+		<div class="input-field col s6">
+			<p>Número de beneficiarios directos con el proyecto: {{proyectos.beneficiariodirecto}} Personas</p>
+		</div>
+		<div class="input-field col s6">
+		<p>Número de beneficiarios indirectos con el proyecto: {{proyectos.beneficiarioindirecto}} Personas</p></div>
+		<div class="input-field col s6">
+			<p>Cantida de metros cuadras que se pretende construir: {{proyectos.dimensiones}} Metros cuadrados</p>
+		</div>
+		<div class="input-field col s6">
+			<p>Duración del proyecto:{{proyectos.duracion}} meses</p>
+		</div>
+		<div class="input-field col s6">
+			<p>Ubicación del proyecto:{{proyectos.region}}</p>
+		</div>
+		<div class="input-field col s6">
+			<p>Meta de ahorro propuesta: {{proyectos.meta}} %</p>
+		</div>
+		<div class="input-field col s6">
+			<p>Capital disponible para realizar el proyecto: ${{proyectos.dinero}}</p>
+		</div>
+		<div class="input-field col s6">
+			<p>Dinero faltante para realizar el proyecto:${{proyectos.aporte}}</p>
+		</div>
+		<div class="input-field col s6">
+			<p>Gasto en Recursos humanos: ${{proyectos.manodeobra}}</p>
+		</div>
+		<div class="input-field col s6">
+			<p>Gasto en materiales: ${{proyectos.materiales}}</p>
+		</div>
+	</div>
 
-	<div class="col s4">
-    <h5>Pocentaje de avance del proyecto</h5>
-    <input type="text" value="20" class="dial">
-    <!-- <input type="text" value="55" class="dial" data-width="200" data-thickness=".32" data-fgColor="#008BE8" data-bgColor="#EEEEEE" data-cursor=false data-displayInput="true" data-readOnly=true > -->
-    <h5>Porcentaje de metas cumplidas</h5>
-    <input type="text" value="67" class="dial">
-  
-</div>
-<div class= "col s4"><div class="map-container">
-	<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/d/u/0/embed?mid=1ue8T9z3n59IHTJqNN_d3Jf57swY" width="100%" height="480"></iframe>
-</div>
-<!-- <div ng-repeat="item in valor" class= "col s4">
-	<p ng-init="sumar({{item.kwh}})">{{contador}}</p>
-</div> -->
 </div>

@@ -2,20 +2,16 @@
 
 /**
  * @ngdoc function
- * @name frontEbarrioApp.controller:DetallesCtrl
+ * @name frontEbarrioApp.controller:VerconsumoCtrl
  * @description
- * # DetallesCtrl
+ * # VerconsumoCtrl
  * Controller of the frontEbarrioApp
  */
 angular.module('frontEbarrioApp')
-  .controller('DetallesCtrl', function () {
+  .controller('VerconsumoCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-     var vm=this;
-    vm.menutemplate={
-      url:'views/menu.html'
-    };
   });

@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name plataformaApp
+ * @name frontEbarrioApp
  * @description
- * # plataformaApp
+ * # frontEbarrioApp
  *
  * Main module of the application.
  */
 angular
-  .module('plataformaApp', [
+  .module('frontEbarrioApp', [
     'ngAnimate',
     'ngAria',
     'ngCookies',
@@ -17,183 +17,141 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch',
-    'chart.js',
-    'toaster'
-    ])
-  
-  .config(function ($routeProvider,ChartJsProvider) {
+    'ngTouch'
+  ])
+  .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about/:id', {
+      .when('/about', {
         templateUrl: 'views/about.html',
-        controller: 'ViewCtrl',
+        controller: 'AboutCtrl',
         controllerAs: 'about'
-      })
-      .when('/mapa', {
-        templateUrl: 'views/mapa.html',
-        controller: 'MapaCtrl',
-        controllerAs: 'mapa'
-      })
-      // .when('/registro', {
-      //   templateUrl: 'views/registro.html',
-      //   controller: 'RegistroCtrl',
-      //   controllerAs: 'registro'
-      // })
-      .when('/registro', {
-        templateUrl: 'views/registro.html',
-        controller: 'AddUserCtrl',
-        controllerAs: 'registro'
-      })
-      .when('/exito', {
-        templateUrl: 'views/exito.html',
-        controller: 'ExitoCtrl',
-        controllerAs: 'exito'
-      })
-      .when('/proyectos', {
-        templateUrl: 'views/proyectos.html',
-        controller: 'ViewCtrl',  //
-        controllerAs: 'proyectos'
-      })
-      .when('/postular', {
-        templateUrl: 'views/postular.html',
-        controller: 'PostularCtrl',
-        controllerAs: 'postular'
-      })
-      .when('/hcarbono', {
-        templateUrl: 'views/hcarbono.html',
-        controller: 'HcarbonoCtrl',
-        controllerAs: 'hcarbono'
-      })
-      .when('/ubicacion', {
-        templateUrl: 'views/ubicacion.html',
-        controller: 'UbicacionCtrl',
-        controllerAs: 'ubicacion'
-      })
-      .when('/menu', {
-        templateUrl: 'views/menu.html',
-        controller: 'MenuCtrl',
-        controllerAs: 'menu'
-      })
-      .when('/grafico', {
-        templateUrl: 'views/grafico.html',
-        controller: 'GraficoCtrl',
-        controllerAs: 'grafico'
-      })
-      .when('/metas', {
-        templateUrl: 'views/metas.html',
-        controller: 'MetasCtrl',
-        controllerAs: 'metas'
-      })
-      .when('/navbar', {
-        templateUrl: 'views/navbar.html',
-        controller: 'NavbarCtrl',
-        controllerAs: 'navbar'
-      })
-      .when('/listaproyectos', {
-        templateUrl: 'views/listaproyectos.html',
-        controller: 'CreateCtrl',
-        controllerAs: 'listaProyectos'
-      })
-      .when('/consumodiario', {
-        templateUrl: 'views/consumodiario.html',
-        controller: 'ConsumodiarioCtrl',
-        controllerAs: 'consumodiario'
-      })
-      .when('/dibujar', {
-        templateUrl: 'views/dibujar.php',
-        controller: 'DibujarCtrl',
-        controllerAs: 'dibujar'
-      })
-      .when('/ebarrio', {
-        templateUrl: 'views/ebarrio.php',
-        controller: 'EbarrioCtrl',
-        controllerAs: 'ebarrio'
-      })
-      .when('/conexion.php', {
-        templateUrl: 'views/conexion.php',
-        controller: 'ConexionPhpCtrl',
-        controllerAs: 'conexion.php'
-      })
-      .when('/usuarios', {
-        templateUrl: 'views/usuarios.html',
-        controller: 'UsuariosCtrl',
-        controllerAs: 'usuarios'
-      })
-      .when('/misproyectos', {
-        templateUrl: 'views/misproyectos.html',
-        controller: 'MisproyectosCtrl',
-        controllerAs: 'misproyectos'
-      })
-      .when('/modificarvalores', {
-        templateUrl: 'views/modificarvalores.html',
-        controller: 'ModificarvaloresCtrl',
-        controllerAs: 'modificarvalores'
       })
       .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
         controllerAs: 'login'
       })
-      .when('/inforproyecto', {
-        templateUrl: 'views/inforproyecto.html',
-        controller: 'InforproyectoCtrl',
-        controllerAs: 'inforproyecto'
+      .when('/menu', {
+        templateUrl: 'views/menu.html',
+        controller: 'MenuCtrl',
+        controllerAs: 'menu'
       })
-      // .when('/detalless', {
-      //   templateUrl: 'views/detalles.html',
-      //   controller: 'DetallesCtrl',
-      //   controllerAs: 'detalles'
-      // })
-      .when('/detalles', {
-        templateUrl: 'views/detalles.html',
-        controller: 'DetallesCtrl',
-        controllerAs: 'detalles'
+      .when('/inicio', {
+        templateUrl: 'views/inicio.html',
+        controller: 'InicioCtrl',
+        controllerAs: 'inicio'
       })
-      .when('/destallesproyecto/:id', {
-        templateUrl: 'views/destallesproyecto.html',
-        controller: 'ViewCtrl',
-        controllerAs: 'destallesproyecto'
+      .when('/casillaproyectos', {
+        templateUrl: 'views/casillaproyectos.html',
+        controller: 'CasillaproyectosCtrl',
+        controllerAs: 'casillaproyectos'
+      })
+      .when('/crearproyecto', {
+        templateUrl: 'views/crearproyecto.html',
+        controller: 'CrearproyectoCtrl',
+        controllerAs: 'crearproyecto'
+      })
+      .when('/listaproyectos', {
+        templateUrl: 'views/listaproyectos.html',
+        controller: 'ListaproyectosCtrl',
+        controllerAs: 'listaproyectos'
+      })
+      .when('/hcarbono', {
+        templateUrl: 'views/hcarbono.html',
+        controller: 'HcarbonoCtrl',
+        controllerAs: 'hcarbono'
+      })
+      .when('/registro', {
+        templateUrl: 'views/registro.html',
+        controller: 'RegistroCtrl',
+        controllerAs: 'registro'
       })
       .when('/editar/:id', {
         templateUrl: 'views/editar.html',
-        controller: 'EditCtrl',
+        controller: 'EditarCtrl',
         controllerAs: 'editar'
+      })
+      .when('/detallecasilla/:id', {
+        templateUrl: 'views/detallecasilla.html',
+        controller: 'ViewCtrl',
+        controllerAs: 'detallecasilla'
+      })
+      .when('/proyectos', {
+        templateUrl: 'views/proyectos.html',
+        controller: 'ProyectosCtrl',
+        controllerAs: 'proyectos'
+      })
+      .when('/efficient', {
+        templateUrl: 'views/efficient.html',
+        controller: 'EfficientCtrl',
+        controllerAs: 'efficient'
+      })
+      .when('/aportes', {
+        templateUrl: 'views/aportes.html',
+        controller: 'AportesCtrl',
+        controllerAs: 'aportes'
+      })
+      .when('/loginadmin', {
+        templateUrl: 'views/loginadmin.html',
+        controller: 'LoginadminCtrl',
+        controllerAs: 'loginadmin'
+      })
+      .when('/ingresoconsumo', {
+        templateUrl: 'views/ingresoconsumo.html',
+        controller: 'IngresoconsumoCtrl',
+        controllerAs: 'ingresoconsumo'
+      })
+      .when('/reloj', {
+        templateUrl: 'views/reloj.html',
+        controller: 'RelojCtrl',
+        controllerAs: 'reloj'
+      })
+      .when('/detalles/:id', {
+        templateUrl: 'views/detalles.html',
+        controller: 'ViewCtrl',
+        controllerAs: 'detalles'
+      })
+      .when('/subir/:id', {
+        templateUrl: 'views/subir.html',
+        controller: 'SubirCtrl',
+        controllerAs: 'subir'
+      })
+      .when('/verconsumo', {
+        templateUrl: 'views/verconsumo.html',
+        controller: 'VerconsumoCtrl',
+        controllerAs: 'verconsumo'
       })
       .otherwise({
         redirectTo: '/'
       });
-     ChartJsProvider.setOptions({
-      	chartColors:['#FF5252','#FF8A80'],
-      	responsive: true
-      });
-      ChartJsProvider.setOptions('line',{
-      	showlines: false
-      });
   })
-.controller('HomeCtrl', ['$scope', 'Proyectos', '$route', function ($scope, Proyectos, $route) {
+
+  .controller('HomeCtrl', ['$scope', 'Proyectos', '$route', function ($scope, Proyectos, $route) {
   var vm=this;
     vm.menutemplate={
-      url:'views/menu.html'
+    url:'views/menu.html'
     };
         Proyectos.get(function (data) {
             $scope.proyectos = data.response;
         })
 
         $scope.remove = function (id) {
+          var result = confirm("¿Seguro que quiere eliminar este proyecto?");
+    if (result) {
             Proyectos.delete({id: id}).$promise.then(function (data) {
                 if (data.response) {
                     $route.reload();
                 }
             })
-        }
+        }}
     }])
 
-    .controller('CreateCtrl', ['$scope', 'Proyectos', function ($scope, Proyectos) {
+  .controller('CreateCtrl', ['$scope', 'Proyectos', function ($scope, Proyectos) {
       var vm=this;
     vm.menutemplate={
       url:'views/menu.html'
@@ -216,6 +174,8 @@ angular
         };
 
         $scope.submit = function () {
+          var result = confirm("Se agregará un nuevo proyecto, ¿Desea continuar?");
+          if (result) {
             Proyectos.save({proyecto: $scope.proyecto}).$promise.then(function (data) {
                 if (data.response) {
                     angular.copy({}, $scope.proyecto);
@@ -227,7 +187,7 @@ angular
                   alert("no se pudo guardar el proyecto");
                 }
             })
-        }
+        }}
     }])
 
     .controller('EditCtrl', ['$scope', 'Proyectos', '$routeParams', function ($scope, Proyectos, $routeParams) {
@@ -247,12 +207,14 @@ angular
         });
 
         $scope.submit = function () {
+          var result = confirm("¿Seguro que quiere editar este proyecto?");
+    if (result) {
             Proyectos.update({proyecto: $scope.proyecto}, function (data) {
                 $scope.settings.success = "El usuario ha sido editada correctamente!";
                 alert("El proyecto ha sido editado con exito");
                      window.location.href='#!/listaproyectos';
             });
-        }
+        }}
     }])
 
     .controller('AddUserCtrl', ['$scope', 'Proyectos', 'Usuarios', '$route', function ($scope, Proyectos, Usuarios, $route) {
@@ -278,16 +240,54 @@ angular
         };
 
         $scope.submit = function () {
+          var result = confirm("Se registrara como nuevo usuario ¿Desea continuar?");
+    if (result) {
+            console.log("estoy agreango usuario");
             Usuarios.save({usuario: $scope.usuario}).$promise.then(function (data) {
                 if (data.response) {
                     angular.copy({}, $scope.proyecto);
                     $scope.settings.success = "El usuario ha sido vinculado correctamente!";
+                    console.log("agregue un usuario");
                 }
             })
-        }
+        }}
     }])
 
-    .controller('ViewCtrl', ['$scope', 'Proyectos', 'Usuarios', 'Participante','$routeParams', '$route', function ($scope, Proyectos, Usuarios, Participante, $routeParams, $route) {
+        .controller('AddEfficientCtrl', ['$scope', 'Proyectos', 'Efficient', '$route', function ($scope, Proyectos, Efficient, $route) {
+      var vm=this;
+    vm.menutemplate={
+      url:'views/menu.html'
+    };
+        Proyectos.get(function (data) {
+            $scope.proyecto = data.response;
+        })
+
+        $scope.settings = {
+            pageTitle: "Agregar usuario a un Proyecto",
+            action: "Agregar"
+        };
+
+        $scope.efficient = {
+            nombre: "",
+            apellido: "",
+            apikey: ""
+        };
+
+        $scope.submit = function () {
+          var result = confirm("Se registrara una nueva instancia de efficient home ¿Desea continuar?");
+    if (result) {
+            Efficient.save({efficient: $scope.efficient}).$promise.then(function (data) {
+                if (data.response) {
+                    angular.copy({}, $scope.efficient);
+                    $scope.settings.success = "Efficient home ha sido agregado exitosamente!";
+                    console.log("agregue un usuario");
+                }
+            })
+        }}
+    }])
+
+
+    .controller('ViewCtrl', ['$scope', 'Proyectos', 'Usuarios', 'Participante','Region','Efficient','$routeParams', '$route', function ($scope, Proyectos, Usuarios, Participante, Region, Efficient, $routeParams, $route) {
       var vm=this;
     vm.menutemplate={
       url:'views/menu.html'
@@ -300,12 +300,20 @@ angular
 
         Proyectos.get({id: id}, function (data) {
             console.log(data.response);
-            $scope.proyecto = data.response;
+            $scope.proyectos = data.response;
         });
 
         Participante.get({id: id}, function (data) {
             console.log(data.response);
             $scope.participante = data.response;
+        });
+        Region.get({id: id}, function (data) {
+            console.log(data.response);
+            $scope.regiones = data.response;
+        });
+        Efficient.get({id: id}, function (data) {
+            console.log(data.response);
+            $scope.efficient = data.response;
         })
 
         $scope.remove = function (id) {
@@ -318,18 +326,28 @@ angular
     }])
 
     .factory('Usuarios', ['$resource', function ($resource) {
-        return $resource('http://localhost:8080/BarrioAPI/usuarios/id', {id: "@_id"}, {
+        return $resource('http://localhost:8081/dashboard/BarrioAPI/usuarios/id', {id: "@_id"}, {
             update: {method: "PUT", params: {id: "@_id"}}
         })
     }])
 
     .factory('Proyectos', ['$resource', function ($resource) {
-        return $resource('http://localhost:8080/BarrioAPI/proyectos/:id', {id: "@_id"}, {
+        return $resource('http://localhost:8081/dashboard/BarrioAPI/proyectos/:id', {id: "@_id"}, {
             update: {method: "PUT", params: {id: "@_id"}}
         })
     }])
     .factory('Participante', ['$resource', function ($resource) {
-        return $resource('http://localhost:8080/BarrioAPI/participantes/', {id: "@_id"}, {
+        return $resource('http://localhost:8081/dashboard/BarrioAPI/participantes/', {id: "@_id"}, {
+            update: {method: "PUT", params: {id: "@_id"}}
+        })
+    }])
+    .factory('Region', ['$resource', function ($resource) {
+        return $resource('http://localhost:8081/dashboard/BarrioAPI/region/:id', {id: "@_id"}, {
+            update: {method: "PUT", params: {id: "@_id"}}
+        })
+    }])
+    .factory('Efficient', ['$resource', function ($resource) {
+        return $resource('http://localhost:8081/dashboard/BarrioAPI/efficient/:id', {id: "@_id"}, {
             update: {method: "PUT", params: {id: "@_id"}}
         })
     }])

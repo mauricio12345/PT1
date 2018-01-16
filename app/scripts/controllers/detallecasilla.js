@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name frontEbarrioApp.controller:DetallesCtrl
+ * @name frontEbarrioApp.controller:DetallecasillaCtrl
  * @description
- * # DetallesCtrl
+ * # DetallecasillaCtrl
  * Controller of the frontEbarrioApp
  */
 angular.module('frontEbarrioApp')
-  .controller('DetallesCtrl', function () {
+  .controller('DetallecasillaCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

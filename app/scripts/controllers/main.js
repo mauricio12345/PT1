@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name plataformaApp.controller:MainCtrl
+ * @name frontEbarrioApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the plataformaApp
+ * Controller of the frontEbarrioApp
  */
-angular.module('plataformaApp')
+angular.module('frontEbarrioApp')
   .controller('MainCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
@@ -17,9 +17,4 @@ angular.module('plataformaApp')
     $(document).ready(function(){
       $('.parallax').parallax();
     });
-
-  
-  
-    
-});
-  
+  });

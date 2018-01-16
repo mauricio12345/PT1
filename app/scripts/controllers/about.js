@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name plataformaApp.controller:AboutCtrl
+ * @name frontEbarrioApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the plataformaApp
+ * Controller of the frontEbarrioApp
  */
-angular.module('plataformaApp')
+angular.module('frontEbarrioApp')
   .controller('AboutCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

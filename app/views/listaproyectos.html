@@ -1,69 +1,30 @@
-<div ng-include="listaproyectos.menutemplate.url"></div>
- <!-- <p ng-show="$parent.settings.success" class="alert alert-success">{{$scope.settings.success}}</p> -->
+<div ng-controller="ListaproyectosCtrl"><div ng-include="listaproyectos.menutemplate.url"></div></div>
 
-         
-  <form class="col s12">
-    <div class="row">
-      <div class="input-field col s6">
-        <input type="text" ng-model="proyecto.nombre" name="nombre">
-        <label for="nombre">Nombre</label>
-      </div>
-      <div class="input-field col s6">
-        <input type="text" ng-model="proyecto.descripcion" name="descripcion">
-        <label for="descripcion">Descripción</label>
-      </div>
-      <div class="input-field col s6">
-        <input type="text" ng-model="proyecto.region" name="region">
-        <label for="region">Región</label>
-      </div>
-      <div class="input-field col s6">
-        <input type="text" ng-model="proyecto.ciudad" name="ciudad">
-        <label for="ciudad">Ciudad</label>
-      </div>
-      <div class="input-field col s6">
-        <input type="text" ng-model="proyecto.estado" name="estado">
-        <label for="estado">Estado (Disponible, Postulación, Adjudicado, Terminado)</label>
-      </div>
-      <div class="input-field col s6">
-        <input  type="text" data-length="500" ng-model="proyecto.requisito" name="requisito">
-        <label for="requisito">Requisito</label>
-      </div>
-      <div class="input-field col s6">
-        <input  type="text" data-length="500" ng-model="proyecto.ahorro" name="meta">
-        <label for="meta">Meta de ahorro</label>
-      </div>
-      <div class="input-field col s6">
-        <input  type="text" data-length="500" ng-model="proyecto.duracion" name="duracion">
-        <label for="duracion">Duración en meses</label>
-      </div>
-      <div class ="input col s6">
-      <a class="waves-effect waves-light indigo btn"  target="_blank" href="https://www.google.com/maps/d/u/1/edit?authuser=1&mid=15tSC9UaEpqv8Ifqcxjff3DOZxF0&ll=-33.033426016470415%2C-71.57579894999998&z=13" >Agregar ubicacion proyectos</a>
-      </div>
-      <div class="input col s6">
-      <input class="btn waves-effect waves-yellow red" type="button" value="Agregar Proyecto" ng-click="submit($scope.proyecto)">
-      </div>
-    </div>
-    <div class ="input-field col s4">
-      
-    </div>
-  </form>
-  <table ng-controller="HomeCtrl" class="bordered">
+<div class="container">
+  <table ng-controller="HomeCtrl" class="bordered striped">
         <thead>
           <tr>
-              
+              <td>Nombre proyecto
+          </td>
+          <td> Estado proyecto</td>
           </tr>
         </thead>
 
         <tbody>
-          <tr ng-repeat="p in proyectos ">
+          <tr ng-repeat="p in proyectos | filter: {estado: 'En proceso fase 1'||'Terminado fase 1'||'Adjudicado fase 2' } " >
             <td>{{p.nombre}}</td>
-            <td><a ng-href="#!/destallesproyecto/{{p.idproyecto}}"><i class="material-icons left">info</i> </a>{{p.id}}</td>
-            <td><a ng-click="remove(p.idproyecto)"><i class="material-icons left">delete</i> </a>
+            <td>{{p.estado}}</td>
+            <td><a ng-href="#!/detalles/{{p.idproyecto}}">Detalles<i class="material-icons left">info</i> </a>{{p.id}}</td>
+            <td><a ng-click="remove(p.idproyecto)">Eliminar<i class="material-icons left">delete</i> </a>
                      </td>
-            <td><a href="#!/editar/{{p.idproyecto}}"><i class="material-icons left">edit</i> </a>
+            <td><a href="#!/editar/{{p.idproyecto}}">Editar<i class="material-icons left">edit</i> </a>
                     <a ng-click="submit(p.idproyecto)"></td>
+            <td>
+            <a href="#!/subir/{{p.idproyecto}}"> Agregar una imagen a proyecto</a>
+            </td>
+                    
           </tr>
         </tbody>
       </table>
-
-
+</div>
+<p>This is the listaproyectos view.</p>
