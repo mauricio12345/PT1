@@ -13,4 +13,4 @@ Running `grunt test` will run the unit tests with karma.
 
 ## Build code
 
-Run 'grunt buil' to generate dist folder
+Run 'grunt build' to generate dist folder 
