@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name frontEbarrioApp.controller:EfficientCtrl
+ * @name ebarrioApp.controller:EfficientCtrl
  * @description
  * # EfficientCtrl
- * Controller of the frontEbarrioApp
+ * Controller of the ebarrioApp
  */
-angular.module('frontEbarrioApp')
+angular.module('ebarrioApp')
   .controller('EfficientCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

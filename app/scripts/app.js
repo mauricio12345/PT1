@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name frontEbarrioApp
+ * @name ebarrioApp
  * @description
- * # frontEbarrioApp
+ * # ebarrioApp
  *
  * Main module of the application.
  */
 angular
-  .module('frontEbarrioApp', [
+  .module('ebarrioApp', [
     'ngAnimate',
     'ngAria',
     'ngCookies',
@@ -17,7 +17,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ngFileUpload'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -121,10 +122,10 @@ angular
         controller: 'SubirCtrl',
         controllerAs: 'subir'
       })
-      .when('/verconsumo', {
-        templateUrl: 'views/verconsumo.html',
-        controller: 'VerconsumoCtrl',
-        controllerAs: 'verconsumo'
+      .when('/consumoactual', {
+        templateUrl: 'views/consumoactual.html',
+        controller: 'ConsumoactualCtrl',
+        controllerAs: 'consumoactual'
       })
       .otherwise({
         redirectTo: '/'
@@ -326,28 +327,28 @@ angular
     }])
 
     .factory('Usuarios', ['$resource', function ($resource) {
-        return $resource('http://localhost:8081/dashboard/BarrioAPI/usuarios/id', {id: "@_id"}, {
+        return $resource('http://localhost:8080/BarrioAPI/usuarios/id', {id: "@_id"}, {
             update: {method: "PUT", params: {id: "@_id"}}
         })
     }])
 
     .factory('Proyectos', ['$resource', function ($resource) {
-        return $resource('http://localhost:8081/dashboard/BarrioAPI/proyectos/:id', {id: "@_id"}, {
+        return $resource('http://localhost:8080/BarrioAPI/proyectos/:id', {id: "@_id"}, {
             update: {method: "PUT", params: {id: "@_id"}}
         })
     }])
     .factory('Participante', ['$resource', function ($resource) {
-        return $resource('http://localhost:8081/dashboard/BarrioAPI/participantes/', {id: "@_id"}, {
+        return $resource('http://localhost:8080/BarrioAPI/participantes/', {id: "@_id"}, {
             update: {method: "PUT", params: {id: "@_id"}}
         })
     }])
     .factory('Region', ['$resource', function ($resource) {
-        return $resource('http://localhost:8081/dashboard/BarrioAPI/region/:id', {id: "@_id"}, {
+        return $resource('http://localhost:8080/BarrioAPI/region/:id', {id: "@_id"}, {
             update: {method: "PUT", params: {id: "@_id"}}
         })
     }])
     .factory('Efficient', ['$resource', function ($resource) {
-        return $resource('http://localhost:8081/dashboard/BarrioAPI/efficient/:id', {id: "@_id"}, {
+        return $resource('http://localhost:80810/BarrioAPI/efficient/:id', {id: "@_id"}, {
             update: {method: "PUT", params: {id: "@_id"}}
         })
     }])

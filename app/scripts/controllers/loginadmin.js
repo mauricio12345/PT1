@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name frontEbarrioApp.controller:LoginadminCtrl
+ * @name ebarrioApp.controller:LoginadminCtrl
  * @description
  * # LoginadminCtrl
- * Controller of the frontEbarrioApp
+ * Controller of the ebarrioApp
  */
-angular.module('frontEbarrioApp')
+angular.module('ebarrioApp')
   .controller('LoginadminCtrl', function ($scope,$http,$rootScope) {
     this.awesomeThings = [
       'HTML5 Boilerplate',

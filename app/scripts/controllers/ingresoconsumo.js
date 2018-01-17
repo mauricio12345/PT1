@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name frontEbarrioApp.controller:IngresoconsumoCtrl
+ * @name ebarrioApp.controller:IngresoconsumoCtrl
  * @description
  * # IngresoconsumoCtrl
- * Controller of the frontEbarrioApp
+ * Controller of the ebarrioApp
  */
-angular.module('frontEbarrioApp')
+angular.module('ebarrioApp')
   .controller('IngresoconsumoCtrl', function ($scope,$http,$rootScope) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
@@ -58,15 +58,24 @@ angular.module('frontEbarrioApp')
     //   file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
     // });
     // }
+   $scope.mostrarAyuda= function ()
+{
+    document.getElementById('ayuda').style.visibility = "visible";
+}
+
+   $scope.ocultarAyuda=function ()
+{
+    document.getElementById('ayuda').style.visibility = "hidden";
+}
 
     $scope.calcular=function(mes1,mes2,mes3,mes4,mes5,mes6,porcentaje){
-    	$rootScope.promedio=(mes1+mes2+mes3+mes4+mes5+mes6)/6;
-    	$rootScope.ahorro=$rootScope.promedio*(porcentaje/100);
-    	$rootScope.consumo=($rootScope.promedio-$rootScope.ahorro);
+        $rootScope.promedio=(mes1+mes2+mes3+mes4+mes5+mes6)/6;
+        $rootScope.ahorro=$rootScope.promedio*(porcentaje/100);
+        $rootScope.consumo=($rootScope.promedio-$rootScope.ahorro);
         $rootScope.valorprom=$rootScope.promedio*(137);
         $rootScope.valorahorro=$rootScope.ahorro*(137,6);
         $rootScope.valorconsumo=$rootScope.consumo*(137,6);
-    	
+        
     }
 
         $scope.insert=function(){   
@@ -77,7 +86,7 @@ angular.module('frontEbarrioApp')
                 'distribuidora':$scope.distribuidora,
                 'usuario':$scope.usuario,
                 'direccion':$scope.direccion,
-                'nmedidor':$socpe.nmedidor,
+                'nmedidor':$scope.nmedidor,
                 'mes_uno':$scope.mes_uno,
                 'consumo_uno':$scope.consumo_uno,
                 'boleta_uno':$scope.boleta_uno,
@@ -111,6 +120,5 @@ angular.module('frontEbarrioApp')
                      });
 }  
   } 
-    	
+        
   });
-

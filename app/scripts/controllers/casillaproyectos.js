@@ -2,13 +2,14 @@
 
 /**
  * @ngdoc function
- * @name frontEbarrioApp.controller:CasillaproyectosCtrl
+ * @name ebarrioApp.controller:CasillaproyectosCtrl
  * @description
  * # CasillaproyectosCtrl
- * Controller of the frontEbarrioApp
+ * Controller of the ebarrioApp
  */
-angular.module('frontEbarrioApp')
-  .factory('Proyectos', ['$resource', function ($resource) {
+
+angular.module('ebarrioApp')
+.factory('Proyectos', ['$resource', function ($resource) {
         return $resource('http://localhost:8080/BarrioAPI/proyectos/:id', {id: "@_id"}, {
             update: {method: "PUT", params: {id: "@_id"}}
         })
@@ -61,4 +62,3 @@ angular.module('frontEbarrioApp')
 }
         }
   });
-

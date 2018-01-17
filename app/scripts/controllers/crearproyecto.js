@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name frontEbarrioApp.controller:CrearproyectoCtrl
+ * @name ebarrioApp.controller:CrearproyectoCtrl
  * @description
  * # CrearproyectoCtrl
- * Controller of the frontEbarrioApp
+ * Controller of the ebarrioApp
  */
-angular.module('frontEbarrioApp')
- .factory('Proyectos', ['$resource', function ($resource) {
+angular.module('ebarrioApp')
+.factory('Proyectos', ['$resource', function ($resource) {
         return $resource('http://localhost:8080/BarrioAPI/proyectos/:id', {id: "@_id"}, {
             update: {method: "PUT", params: {id: "@_id"}}
         })

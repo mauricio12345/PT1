@@ -63,7 +63,7 @@ body {
 @media screen and (min-width: 768px) {
   .container {
     max-width: 730px;
-  }
+  }}
 
   /* Remove the padding we set earlier */
   .header,
@@ -80,4 +80,61 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+  .field_set{
+  border-color: #0B6121;
+  border-style: solid;
+  border-width: 4px;
 }
+/*.ng-valid{
+  border: thin solid #090;
+}
+.ng-invalid{
+  border: thin solid #990000;
+}*/
+/*nuevos estilos*/
+
+#ayuda{
+        position: absolute;
+        left: 5px;
+        top: 50px;
+        border: solid gray 1px;
+        width: 250px;
+        background-color: white;
+        box-shadow: 6px 6px 5px #999;
+        -webkit-box-shadow: 6px 6px 5px #999;
+        -moz-box-shadow: 6px 6px 5px #999;
+        visibility: hidden;
+        z-index: 5000;
+    }
+    
+    #boton {
+        -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+        -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+        box-shadow:inset 0px 1px 0px 0px #ffffff;
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #d1d1d1) );
+        background:-moz-linear-gradient( center top, #ffffff 5%, #d1d1d1 100% );
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#d1d1d1');
+        background-color:#ffffff;
+        -moz-border-radius:6px;
+        -webkit-border-radius:6px;
+        border-radius:6px;
+        border:1px solid #dcdcdc;
+        display:inline-block;
+        color:#777777;
+        font-family:arial;
+        font-size:15px;
+        font-weight:bold;
+        padding:6px 24px;
+        text-decoration:none;
+        text-shadow:1px 1px 0px #ffffff;
+    }
+  #boton:hover {
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d1d1d1), color-stop(1, #ffffff) );
+        background:-moz-linear-gradient( center top, #d1d1d1 5%, #ffffff 100% );
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d1d1', endColorstr='#ffffff');
+        background-color:#d1d1d1;
+    }
+  #boton:active {
+        position:relative;
+        top:1px;
+    }

@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name frontEbarrioApp.controller:ListaproyectosCtrl
+ * @name ebarrioApp.controller:ListaproyectosCtrl
  * @description
  * # ListaproyectosCtrl
- * Controller of the frontEbarrioApp
+ * Controller of the ebarrioApp
  */
-angular.module('frontEbarrioApp')
+angular.module('ebarrioApp')
   .controller('ListaproyectosCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

@@ -1,4 +1,4 @@
-// Generated on 2017-04-10 using generator-angular 0.16.0
+// Generated on 2017-11-29 using generator-angular 0.16.0
 'use strict';
 
 // # Globbing
@@ -338,7 +338,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       dist: {
         options: {
-          module: 'plataformaApp',
+          module: 'ebarrioApp',
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },

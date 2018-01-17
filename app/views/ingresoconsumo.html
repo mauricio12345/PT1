@@ -1,7 +1,7 @@
 <div ng-include="ingresoconsumo.menutemplate.url"></div>
 <div class="container">
 <p style="text-align: justify;">En esta sección podras ingresar el consumo de los ultimos 6 meses para calcular el promedio de tu consumo y de esta manera conocer cuantos kwh debes ahorrar para poder cumplir con tu meta</p>
-<form class="col s12">
+<form class="col s12" id="formulario">
 	<div class="row" name="consumo">
 		<fieldset class="field_set">
 			<legend style="font-size:160%; color:grey">Información de proveedor de energía</legend>
@@ -55,24 +55,11 @@
 <fieldset class="field_set">
 	<legend style="font-size:160%; color:grey">Consumo histórico</legend>
 	<p style="font-weight: bold;">**Los valores históricos se ingresan desde mes más proximo al más antiguo**</p>
+	<p style="color:blue;"> EL consumo de cada mes esta definido por la fecha de emision de cada boleta, como se muestra en la siguiente imagen <img src="images/info.jpg"></script></p>
 	<div class="input-field col s6">
 	<fieldset>
 		<legend>Mes 1</legend>
-		<p>Mes: <input type="text" list="mes_uno" ng-model="mes_uno" name="mes_uno">
-		<datalist id="mes_uno">
-		          <option value="Enero"></option>
-		          <option value="Febrero"></option>
-		          <option value="Marzo"></option>
-		          <option value="Abril"></option>
-		          <option value="Mayo"></option>
-		          <option value="Junio"></option>
-		          <option value="Julio"></option>
-		          <option value="Agosto"></option>
-		          <option value="Septiembre"></option>
-		          <option value="Octubre"></option>
-		          <option value="Noviembre"></option>
-		          <option value="Diciembre"></option>
-		        </datalist>  </p>
+		<p>Mes: <input type="date" min="2017-06-01" ng-model="mes_uno" name="mes_uno">  </p>
 		<p>Consumo : <input type="number" ng-model="consumo_uno" name="consumo_uno" placeholder="Valores en kwh">  </p>
 		<p>Núnero de boleta : <input type="number" ng-model="boleta_uno" name="boleta_uno">  </p>
 	</fieldset>
@@ -80,21 +67,8 @@
 	<div class="input-field col s6">
 	<fieldset>
 		<legend>Mes 2</legend>
-		<p>Mes: <input type="text" list="mes_dos" ng-model="mes_dos" name="mes_dos">
-		<datalist id="mes_dos">
-		          <option value="Enero"></option>
-		          <option value="Febrero"></option>
-		          <option value="Marzo"></option>
-		          <option value="Abril"></option>
-		          <option value="Mayo"></option>
-		          <option value="Junio"></option>
-		          <option value="Julio"></option>
-		          <option value="Agosto"></option>
-		          <option value="Septiembre"></option>
-		          <option value="Octubre"></option>
-		          <option value="Noviembre"></option>
-		          <option value="Diciembre"></option>
-		        </datalist>  </p>
+		<p>Mes: <input type="date" min="2017-06-01" ng-model="mes_dos" name="mes_dos">
+		  </p>
 		<p>Consumo : <input type="number" ng-model="consumo_dos" name="consumo_dos" placeholder="Valores en kwh">  </p>
 		<p>Núnero de boleta : <input type="number" ng-model="boleta_dos" name="boleta_dos">  </p>
 	</fieldset>
@@ -102,21 +76,8 @@
 <div class="input-field col s6">
 	<fieldset>
 		<legend>Mes 3</legend>
-		<p>Mes: <input type="text" list="mes_tres" ng-model="mes_tres" name="mes_tres">
-		<datalist id="mes_tres">
-		          <option value="Enero"></option>
-		          <option value="Febrero"></option>
-		          <option value="Marzo"></option>
-		          <option value="Abril"></option>
-		          <option value="Mayo"></option>
-		          <option value="Junio"></option>
-		          <option value="Julio"></option>
-		          <option value="Agosto"></option>
-		          <option value="Septiembre"></option>
-		          <option value="Octubre"></option>
-		          <option value="Noviembre"></option>
-		          <option value="Diciembre"></option>
-		        </datalist>  </p>
+		<p>Mes: <input type="date" min="2017-06-01" ng-model="mes_tres" name="mes_tres">
+		  </p>
 		<p>Consumo : <input type="number" ng-model="consumo_tres" name="consumo_tres" placeholder="Valores en kwh">  </p>
 		<p>Núnero de boleta : <input type="number" ng-model="boleta_tres" name="boleta_tres">  </p>
 	</fieldset>
@@ -124,21 +85,8 @@
 <div class="input-field col s6">
 	<fieldset>
 		<legend>Mes 4</legend>
-		<p>Mes: <input type="datepicker" list="mes_cuatro" ng-model="mes_cuatro" name="mes_cuatro">
-		<!-- <datalist id="mes_cuatro">
-		          <option value="Enero"></option>
-		          <option value="Febrero"></option>
-		          <option value="Marzo"></option>
-		          <option value="Abril"></option>
-		          <option value="Mayo"></option>
-		          <option value="Junio"></option>
-		          <option value="Julio"></option>
-		          <option value="Agosto"></option>
-		          <option value="Septiembre"></option>
-		          <option value="Octubre"></option>
-		          <option value="Noviembre"></option>
-		          <option value="Diciembre"></option>
-		        </datalist> --> </p>
+		<p>Mes: <input type="date" min="2017-06-01" ng-model="mes_cuatro" name="mes_cuatro">
+		  </p>
 		<p>Consumo : <input type="number" ng-model="consumo_cuatro" name="consumo_cuatro" placeholder="Valores en kwh">  </p>
 		<p>Núnero de boleta : <input type="number" ng-model="boleta_cuatro" name="boleta_cuatro">  </p>
 	</fieldset>
@@ -146,21 +94,8 @@
 <div class="input-field col s6">
 	<fieldset>
 		<legend>Mes 5</legend>
-		<p>Mes: <input type="text" list="mes_cinco" ng-model="mes_cinco" name="mes_cinco">
-		<datalist id="mes_cinco">
-		          <option value="Enero"></option>
-		          <option value="Febrero"></option>
-		          <option value="Marzo"></option>
-		          <option value="Abril"></option>
-		          <option value="Mayo"></option>
-		          <option value="Junio"></option>
-		          <option value="Julio"></option>
-		          <option value="Agosto"></option>
-		          <option value="Septiembre"></option>
-		          <option value="Octubre"></option>
-		          <option value="Noviembre"></option>
-		          <option value="Diciembre"></option>
-		        </datalist>  </p>
+		<p>Mes: <input type="date" min="2017-06-01" ng-model="mes_cinco" name="mes_cinco">
+		  </p>
 		<p>Consumo : <input type="number" ng-model="consumo_cinco" name="consumo_cinco" placeholder="Valores en kwh">  </p>
 		<p>Núnero de boleta : <input type="number" ng-model="boleta_cinco" name="boleta_cinco">  </p>
 	</fieldset>
@@ -168,21 +103,8 @@
 <div class="input-field col s6">
 	<fieldset>
 		<legend>Mes 6</legend>
-		<p>Mes: <input type="text" list="mes_seis" ng-model="mes_seis" name="mes_seis">
-		<datalist id="mes_seis">
-		          <option value="Enero"></option>
-		          <option value="Febrero"></option>
-		          <option value="Marzo"></option>
-		          <option value="Abril"></option>
-		          <option value="Mayo"></option>
-		          <option value="Junio"></option>
-		          <option value="Julio"></option>
-		          <option value="Agosto"></option>
-		          <option value="Septiembre"></option>
-		          <option value="Octubre"></option>
-		          <option value="Noviembre"></option>
-		          <option value="Diciembre"></option>
-		        </datalist>  </p>
+		<p>Mes: <input type="date" min="2017-06-01" ng-model="mes_seis" name="mes_seis">
+		  </p>
 		<p>Consumo : <input type="number" ng-model="consumo_seis" name="consumo_seis" placeholder="Valores en kwh">  </p>
 		<p>Núnero de boleta : <input type="number" ng-model="boleta_seis" name="boleta_seis">  </p>
 	</fieldset>

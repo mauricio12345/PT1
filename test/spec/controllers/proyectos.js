@@ -3,7 +3,7 @@
 describe('Controller: ProyectosCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('plataformaApp'));
+  beforeEach(module('ebarrioApp'));
 
   var ProyectosCtrl,
     scope;

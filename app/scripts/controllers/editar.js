@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name frontEbarrioApp.controller:EditarCtrl
+ * @name ebarrioApp.controller:EditarCtrl
  * @description
  * # EditarCtrl
- * Controller of the frontEbarrioApp
+ * Controller of the ebarrioApp
  */
-angular.module('frontEbarrioApp')
+angular.module('ebarrioApp')
   .controller('EditarCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

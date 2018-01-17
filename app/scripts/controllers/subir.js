@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name frontEbarrioApp.controller:SubirCtrl
+ * @name ebarrioApp.controller:SubirCtrl
  * @description
  * # SubirCtrl
- * Controller of the frontEbarrioApp
+ * Controller of the ebarrioApp
  */
-angular.module('frontEbarrioApp')
- .controller('SubirCtrl', function ($scope, upload) {
+angular.module('ebarrioApp')
+  .controller('SubirCtrl', function ($scope, upload) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -69,4 +69,3 @@ angular.module('frontEbarrioApp')
         return deferred.promise;
     }   
 }])
-

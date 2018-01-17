@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name frontEbarrioApp.controller:InicioCtrl
+ * @name ebarrioApp.controller:InicioCtrl
  * @description
  * # InicioCtrl
- * Controller of the frontEbarrioApp
+ * Controller of the ebarrioApp
  */
-angular.module('frontEbarrioApp')
+angular.module('ebarrioApp')
   .controller('InicioCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

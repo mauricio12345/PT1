@@ -3,7 +3,7 @@
 describe('Controller: RegistroCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('plataformaApp'));
+  beforeEach(module('ebarrioApp'));
 
   var RegistroCtrl,
     scope;

@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name frontEbarrioApp.controller:RegistroCtrl
+ * @name ebarrioApp.controller:RegistroCtrl
  * @description
  * # RegistroCtrl
- * Controller of the frontEbarrioApp
+ * Controller of the ebarrioApp
  */
-angular.module('frontEbarrioApp')
+angular.module('ebarrioApp')
   .controller('RegistroCtrl', function ($scope,$http) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
