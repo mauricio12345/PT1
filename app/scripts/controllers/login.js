@@ -151,7 +151,6 @@ angular.module('ebarrioApp')
         if(data.data==='correct'){
           console.log(data.config.data.theusername);
           $rootScope.usuario=data.config.data.theusername;
-          
           window.location.href = '/#!/inicio';
         } else {
           $scope.errorMsg = "Usuario o Contraseña no validos";

@@ -127,6 +127,21 @@ angular
         controller: 'ConsumoactualCtrl',
         controllerAs: 'consumoactual'
       })
+      .when('/consumohistorico', {
+        templateUrl: 'views/consumohistorico.html',
+        controller: 'ConsumohistoricoCtrl',
+        controllerAs: 'consumohistorico'
+      })
+      .when('/detalleconsumo', {
+        templateUrl: 'views/detalleconsumo.html',
+        controller: 'DetalleconsumoCtrl',
+        controllerAs: 'detalleconsumo'
+      })
+      .when('/efficienthome', {
+        templateUrl: 'views/efficienthome.html',
+        controller: 'EfficienthomeCtrl',
+        controllerAs: 'efficienthome'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -288,7 +303,7 @@ angular
     }])
 
 
-    .controller('ViewCtrl', ['$scope', 'Proyectos', 'Usuarios', 'Participante','Region','Efficient','$routeParams', '$route', function ($scope, Proyectos, Usuarios, Participante, Region, Efficient, $routeParams, $route) {
+    .controller('ViewCtrl', ['$scope', 'Proyectos', 'Usuarios', 'Participante','Region','Efficient','Consumohistorico','$routeParams', '$route', function ($scope, Proyectos, Usuarios, Participante, Region, Efficient,Consumohistorico, $routeParams, $route) {
       var vm=this;
     vm.menutemplate={
       url:'views/menu.html'
@@ -315,6 +330,10 @@ angular
         Efficient.get({id: id}, function (data) {
             console.log(data.response);
             $scope.efficient = data.response;
+        });
+        Consumohistorico.get({id: id}, function (data) {
+            console.log(data.response);
+            $scope.consumohistorico = data.response;
         })
 
         $scope.remove = function (id) {
@@ -348,8 +367,13 @@ angular
         })
     }])
     .factory('Efficient', ['$resource', function ($resource) {
-        return $resource('http://localhost:80810/BarrioAPI/efficient/:id', {id: "@_id"}, {
+        return $resource('http://localhost:8080/BarrioAPI/efficient/:id', {id: "@_id"}, {
             update: {method: "PUT", params: {id: "@_id"}}
         })
     }])
+    .factory('Consumohistorico', ['$resource', function ($resource) {
+            return $resource('http://localhost:8080/BarrioAPI/consumohistorico/:id', {id: "@_id"}, {
+                update: {method: "PUT", params: {id: "@_id"}}
+            })
+        }])
 

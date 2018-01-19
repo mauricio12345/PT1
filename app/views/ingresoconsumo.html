@@ -42,7 +42,12 @@
 				</p>
 			</div>
 			<div class="input-field col s6">
-					<p>Nombre de usuario: <input type="text" ng-model="usuario" name="usuario"></p>
+					<p>Tipo de inmueble: <input type="text" list="tipo" ng-model="usuario" name="usuario"></p>
+					<datalist id="tipo">
+						<option value="Trabajo"></option>
+						<option value="Casa"></option>
+						<option value="Empresa"></option>
+					</datalist>
 			</div>	
 			<div class="input-field col s6">
 					<p>Dirección: <input type="text" ng-model="direccion" name="direccion"></p>

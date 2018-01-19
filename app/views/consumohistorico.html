@@ -1,0 +1,84 @@
+<div ng.controller="ConsumohistoricoCtrl">
+	<div ng-include="consumohistorico.menutemplate.url"></div>
+</div>
+<div ng-controller="ViewCtrl">
+	<div class="container">
+		<div ng-repeat="c in consumohistorico">
+			<h3 style="color: green;">Cliente: {{c.ncliente}}</h3>
+			<div class="row">
+				<div class="input-field col s6">
+						<p>Empresa Distribuidora : {{c.distribuidora}}</p>
+				</div>	
+				<div class="input-field col s6">
+						<p>Tipo de inmueble: {{c.usuario}}</p>
+				</div>	
+				<div class="input-field col s6">
+						<p>Dirección : {{c.direccion}}</p>
+				</div>	
+				<div class="input-field col s6">
+						<p>Número de medidor: {{c.nmedidor}}</p>
+				</div>	
+			</div>
+			<div class="row">
+				<fieldset>
+					<legend>Informacion de consumo</legend>
+					<div class="input-field col s4">
+						<p>Fecha de medicion: {{c.mes_uno | date:'dd/MM/yyyy'}} </p>
+					</div>
+					<div class="input-field col s4">
+					   <p> Consumo mes: {{c.consumo_uno}} kwh</p>
+					</div>
+					<div class="input-field col s4">
+					   <p> Gasto: $ {{c.consumo_uno * 137}}</p>
+					</div>
+					<div class="input-field col s4">   
+						<p>Fecha de medicion: {{c.mes_dos | date:'dd/MM/yyyy'}}</p>
+					</div>
+					<div class="input-field col s4">
+					   <p> Consumo mes: {{c.consumo_dos}} kwh</p>
+					</div>
+					<div class="input-field col s4">
+					   <p> Gasto: $ {{c.consumo_dos * 137}}</p>
+					</div>
+					<div class="input-field col s4">
+						<p>Fecha de medicion: {{c.mes_tres | date:'dd/MM/yyyy'}} </p>
+					</div>
+					<div class="input-field col s4">
+					  <p>Consumo mes: {{c.consumo_tres}} kwh</p>
+					</div> 
+					<div class="input-field col s4">
+					   <p> Gasto: $ {{c.consumo_tres * 137}}</p>
+					</div>
+					<div class="input-field col s4">
+						<p>Fecha de medicion: {{c.mes_cuatro | date:'dd/MM/yyyy'}} </p>
+					</div>
+					<div class="input-field col s4">
+					  <p> Consumo mes: {{c.consumo_cuatro}} kwh </p>
+					</div>
+					<div class="input-field col s4">
+					   <p> Gasto: $ {{c.consumo_cuatro * 137}}</p>
+					</div>
+					<div class="input-field col s4">  
+						<p>Fecha de medicion: {{c.mes_cinco | date:'dd/MM/yyyy'}} </p>
+					</div>
+					<div class="input-field col s4">
+					  <p> Consumo mes: {{c.consumo_cinco}} kwh</p>
+					</div>
+					<div class="input-field col s4">
+					   <p> Gasto: $ {{c.consumo_cinco * 137}}</p>
+					</div>
+					<div class="input-field col s4">
+						<p>Fecha de medicion: {{c.mes_seis | date:'dd/MM/yyyy'}} </p>
+					</div>
+					<div class="input-field col s4">
+					  <p>Consumo mes: {{c.consumo_seis}} kwh</p>
+					</div>
+					<div class="input-field col s4">
+					   <p> Gasto: $ {{c.consumo_cinco * 137}}</p>
+					</div>
+				</fieldset>
+			</div>
+			
+		</div>
+	</div>
+</div>

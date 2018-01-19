@@ -1,2 +1,44 @@
-<div ng-repeat="n in consumo"></div>
-{{mes}} hola
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['kwh', 0],
+          ['costokwh', 0]
+         
+        ]);
+        var options = {
+          width: 400, height: 400,
+          redFrom: 100000, redTo: 120000,
+          yellowFrom:80000, yellowTo: 99999	,
+          minorTicks: 5
+        };
+        var chart = new google.visualization.Gauge(document.getElementById('Medidores'));
+        chart.draw(data, options);
+        setInterval(function() {
+            var JSON=$.ajax({
+                url:"https://api.mlab.com/api/1/databases/efficientmdb/collections/ConsumoMes?apiKey=7K2Y6doZUobEqRHLROy1D26_rHQOL89B",
+                dataType: 'json',
+                async: false}).responseText;
+            var Respuesta=jQuery.parseJSON(JSON);
+            
+          data.setValue(0, 1,Respuesta[2].kwh);
+          data.setValue(1, 1,Respuesta[2].costokwh);
+          chart.draw(data, options);
+        }, 1300);
+        
+      }
+    </script>
+<div class="container" ng-repeat="n in consumo | filter: {mes: '12'}">
+	<p> Fecha: {{n.mes}}/{{n.anio}}</p>
+	<p>Consumo: {{n.kwh}}</p>
+	<p>Costo: {{n.costokwh}}</p>
+	
+</div>
+ <div id="Medidores" ></div>
+<div class="input-field col s6"><a class="waves-effect waves-light btn green" href="/#!/detalleconsumo">Mi consumo detallado</a></div>
+

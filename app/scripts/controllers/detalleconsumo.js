@@ -2,24 +2,21 @@
 
 /**
  * @ngdoc function
- * @name ebarrioApp.controller:ConsumoactualCtrl
+ * @name ebarrioApp.controller:DetalleconsumoCtrl
  * @description
- * # ConsumoactualCtrl
+ * # DetalleconsumoCtrl
  * Controller of the ebarrioApp
  */
 angular.module('ebarrioApp')
-  .controller('ConsumoactualCtrl', function ($scope,$http) {
+  .controller('DetalleconsumoCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-
-    
-    console.log("get");
-    $http({
+        $http({
   method: 'GET',
-  url: 'https://api.mlab.com/api/1/databases/efficientmdb/collections/ConsumoMes?apiKey=7K2Y6doZUobEqRHLROy1D26_rHQOL89B'
+  url: 'https://api.mlab.com/api/1/databases/efficientmdb/collections/ConsumoDia?apiKey=7K2Y6doZUobEqRHLROy1D26_rHQOL89B'
 }).then(function successCallback(response) {
 	$scope.consumo = response.data;
 	console.log(response);
@@ -29,15 +26,4 @@ angular.module('ebarrioApp')
     // called asynchronously if an error occurs
     // or server returns response with an error status.
   });
- 
-
-
-  
-      // .error(function(data, status, headers, config) {
-      //   $scope.errorMsg = 'Unable to LOGIN';
-      // })
-            
-  
-
-
   });
