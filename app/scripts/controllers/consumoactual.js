@@ -14,7 +14,10 @@ angular.module('ebarrioApp')
       'AngularJS',
       'Karma'
     ];
-
+    var vm=this;
+    vm.menutemplate={
+      url:'views/menu.html'
+    };
     
     console.log("get");
     $http({

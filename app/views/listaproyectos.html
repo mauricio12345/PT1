@@ -12,7 +12,8 @@
 
         <tbody>
           <tr ng-repeat="p in proyectos | filter: {estado: 'En proceso fase 1'||'Terminado fase 1'||'Adjudicado fase 2' } " >
-            <td>{{p.nombre}}</td>
+<!--             <p> Mostrando un total de {{proyectos.length}} Proyectos. Estos son: </p>
+ -->        <td>{{p.nombre}}</td>
             <td>{{p.estado}}</td>
             <td><a ng-href="#!/detalles/{{p.idproyecto}}">Detalles<i class="material-icons left">info</i> </a>{{p.id}}</td>
             <td><a ng-click="remove(p.idproyecto)">Eliminar<i class="material-icons left">delete</i> </a>

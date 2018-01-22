@@ -85,6 +85,13 @@ body {
   border-style: solid;
   border-width: 4px;
 }
+.error {
+  border-color: red;
+}
+
+.warning {
+  border-color: yellow;
+}
 /*.ng-valid{
   border: thin solid #090;
 }

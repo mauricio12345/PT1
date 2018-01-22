@@ -55,7 +55,191 @@ var yy = date.getYear();
 var year = (yy < 1000) ? yy + 1900 : yy;
 document.write("Hoy es " + day + " de " + months[month] + " del " + year);
 //]]>
+// modulo para crear graficos de tipo gauge, cada funcion puede crear infinitos graficos, pero para mejorar 
+// la vista del usuario se realizaran un grafico por cada funcion. 
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChartHumedad);
+      function drawChartHumedad() {
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Humedad', 0],
+         
+        ]);
+        var options = {
+          width: 250, height: 250,
+          max: 100, min: 0,
+          redFrom: 90, redTo: 100,
+          yellowFrom:75, yellowTo: 90 ,
+          minorTicks: 5
+        };
+        var chart = new google.visualization.Gauge(document.getElementById('humedadUno'));
+        chart.draw(data, options);
+        setInterval(function() {
+            var JSON=$.ajax({
+                url:"https://api.mlab.com/api/1/databases/efficientmdb/collections/Condensacion?apiKey=7K2Y6doZUobEqRHLROy1D26_rHQOL89B",
+                dataType: 'json',
+                async: false}).responseText;
+            var Respuesta=jQuery.parseJSON(JSON);
+            
+          data.setValue(0, 1,Respuesta[1].humedad);
+          chart.draw(data, options);
+        }, 1300);
+        
+      }
+
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChartTemperatura);
+      function drawChartTemperatura() {
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Temperatura', 0]
+         
+        ]);
+        var options = {
+          width: 250, height: 250,
+          max: 70, min: 0,
+          redFrom: 60, redTo: 70,
+          yellowFrom:45, yellowTo: 60 ,
+          minorTicks: 5
+        };
+        var chart = new google.visualization.Gauge(document.getElementById('temperaturaUno'));
+        chart.draw(data, options);
+        setInterval(function() {
+            var JSON=$.ajax({
+                url:"https://api.mlab.com/api/1/databases/efficientmdb/collections/Condensacion?apiKey=7K2Y6doZUobEqRHLROy1D26_rHQOL89B",
+                dataType: 'json',
+                async: false}).responseText;
+            var Respuesta=jQuery.parseJSON(JSON);
+            
+          data.setValue(0, 1,Respuesta[1].temperatura);
+          chart.draw(data, options);
+        }, 1300);
+        
+      }
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChartHumedadDos);
+      function drawChartHumedadDos() {
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Humedad', 0],
+         
+        ]);
+        var options = {
+          width: 250, height: 250,
+          max: 100, min: 0,
+          redFrom: 90, redTo: 100,
+          yellowFrom:75, yellowTo: 90 ,
+          minorTicks: 5
+        };
+        var chart = new google.visualization.Gauge(document.getElementById('humedadDos'));
+        chart.draw(data, options);
+        setInterval(function() {
+            var JSON=$.ajax({
+                url:"https://api.mlab.com/api/1/databases/efficientmdb/collections/Condensacion?apiKey=7K2Y6doZUobEqRHLROy1D26_rHQOL89B",
+                dataType: 'json',
+                async: false}).responseText;
+            var Respuesta=jQuery.parseJSON(JSON);
+            
+          data.setValue(0, 1,Respuesta[2].humedad);
+          chart.draw(data, options);
+        }, 1300);
+        
+      }
+
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChartTemperaturaDos);
+      function drawChartTemperaturaDos() {
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Temperatura', 0]
+         
+        ]);
+        var options = {
+          width: 250, height: 250,
+          max: 70, min: 0,
+          redFrom: 60, redTo: 70,
+          yellowFrom:45, yellowTo: 60 ,
+          minorTicks: 5
+        };
+        var chart = new google.visualization.Gauge(document.getElementById('temperaturaDos'));
+        chart.draw(data, options);
+        setInterval(function() {
+            var JSON=$.ajax({
+                url:"https://api.mlab.com/api/1/databases/efficientmdb/collections/Condensacion?apiKey=7K2Y6doZUobEqRHLROy1D26_rHQOL89B",
+                dataType: 'json',
+                async: false}).responseText;
+            var Respuesta=jQuery.parseJSON(JSON);
+            
+          data.setValue(0, 1,Respuesta[2].temperatura);
+          chart.draw(data, options);
+        }, 1300);
+        
+      }
+
+       google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChartEfficient);
+      function drawChartEfficient() {
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Kwh', 0]
+         
+        ]);
+        var options = {
+          width: 200, height: 200,
+          max: 1000, min: 0,
+          redFrom: 900, redTo: 1000,
+          yellowFrom:750, yellowTo: 900 ,
+          minorTicks: 5
+        };
+        var chart = new google.visualization.Gauge(document.getElementById('Efficient'));
+        chart.draw(data, options);
+        setInterval(function() {
+            var JSON=$.ajax({
+                url:"https://api.mlab.com/api/1/databases/efficientmdb/collections/ConsumoMes?apiKey=7K2Y6doZUobEqRHLROy1D26_rHQOL89B",
+                dataType: 'json',
+                async: false}).responseText;
+            var Respuesta=jQuery.parseJSON(JSON);
+            
+          data.setValue(0, 1,Respuesta[2].kwh);
+          chart.draw(data, options);
+        }, 1300);
+        
+      }
+       google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChartEfficientDos);
+      function drawChartEfficientDos() {
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Costo', 0]
+         
+        ]);
+        var options = {
+          width: 200, height: 200,
+          max: 130000, min: 0,
+          redFrom: 115000, redTo: 130000,
+          yellowFrom:90000, yellowTo: 115000 ,
+          minorTicks: 5
+        };
+        var chart = new google.visualization.Gauge(document.getElementById('EfficientDos'));
+        chart.draw(data, options);
+        setInterval(function() {
+            var JSON=$.ajax({
+                url:"https://api.mlab.com/api/1/databases/efficientmdb/collections/ConsumoMes?apiKey=7K2Y6doZUobEqRHLROy1D26_rHQOL89B",
+                dataType: 'json',
+                async: false}).responseText;
+            var Respuesta=jQuery.parseJSON(JSON);
+            
+          data.setValue(0, 1,Respuesta[2].costokwh);
+          chart.draw(data, options);
+        }, 1300);
+        
+      }
+    </script>
     
     <div ng-view=""></div>
     

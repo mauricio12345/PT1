@@ -1,15 +1,16 @@
 <div ng-include="ingresoconsumo.menutemplate.url"></div>
 <div class="container">
 <p style="text-align: justify;">En esta sección podras ingresar el consumo de los ultimos 6 meses para calcular el promedio de tu consumo y de esta manera conocer cuantos kwh debes ahorrar para poder cumplir con tu meta</p>
-<form class="col s12" id="formulario">
+<form class="col s12" name="formulario">
 	<div class="row" name="consumo">
 		<fieldset class="field_set">
 			<legend style="font-size:160%; color:grey">Información de proveedor de energía</legend>
 			<div class="input-field col s6">
-				<p>Numero de cliente: <input type="text" ng-model="ncliente" name="ncliente"> </p>
+				<p>Numero de cliente: <input type="text" ng-model="ncliente" name="ncliente" required data-ng-class='{error:formulario.ncliente.$invalid && !formulario.$pristine}'> </p>
+				<span ng-show="formulario.ncliente.$invalid">Este campo es obligatorio.</span>
 			</div>
 			<div class="input-field col s6">
-				<p>Empresa distribuidora de energía: <input type="text" list="distribuidora" ng-model="distribuidora" name="distribuidora">
+				<p>Empresa distribuidora de energía: <input type="text" list="distribuidora" ng-model="distribuidora" name="distribuidora" required data-ng-class='{error:formulario.distribuidora.$invalid && !formulario.$pristine}'>
 				<datalist id="distribuidora">
 		          <option value="Elecnor Chile"></option>
 		          <option value="CGE Distribución"></option>
@@ -42,7 +43,7 @@
 				</p>
 			</div>
 			<div class="input-field col s6">
-					<p>Tipo de inmueble: <input type="text" list="tipo" ng-model="usuario" name="usuario"></p>
+					<p>Tipo de inmueble: <input type="text" list="tipo" ng-model="usuario" name="usuario" required data-ng-class='{error:formulario.usuario.$invalid && !formulario.$pristine}'></p>
 					<datalist id="tipo">
 						<option value="Trabajo"></option>
 						<option value="Casa"></option>
@@ -50,10 +51,10 @@
 					</datalist>
 			</div>	
 			<div class="input-field col s6">
-					<p>Dirección: <input type="text" ng-model="direccion" name="direccion"></p>
+					<p>Dirección: <input type="text" ng-model="direccion" name="direccion" required data-ng-class='{error:formulario.direccion.$invalid && !formulario.$pristine}'></p>
 			</div>	
 			<div class="input-field col s6">
-					<p>Numero medidor: <input type="number" ng-model="nmedidor" name="nmedidor"></p>
+					<p>Numero medidor: <input type="number" ng-model="nmedidor" name="nmedidor" required data-ng-class='{error:formulario.nmedidor.$invalid && !formulario.$pristine}'></p>
 			</div>	
 		</fieldset>
 		<br>
@@ -64,54 +65,54 @@
 	<div class="input-field col s6">
 	<fieldset>
 		<legend>Mes 1</legend>
-		<p>Mes: <input type="date" min="2017-06-01" ng-model="mes_uno" name="mes_uno">  </p>
-		<p>Consumo : <input type="number" ng-model="consumo_uno" name="consumo_uno" placeholder="Valores en kwh">  </p>
-		<p>Núnero de boleta : <input type="number" ng-model="boleta_uno" name="boleta_uno">  </p>
+		<p>Mes: <input type="date" min="2017-06-01" ng-model="mes_uno" name="mes_uno"  data-ng-class='{error:formulario.mes_uno.$invalid && !formulario.$pristine}'>  </p>
+		<p>Consumo : <input type="number" ng-model="consumo_uno" name="consumo_uno" placeholder="Valores en kwh"  data-ng-class='{error:formulario.consumo_uno.$invalid && !formulario.$pristine}'>  </p>
+		<p>Núnero de boleta : <input type="number" ng-model="boleta_uno" name="boleta_uno"  data-ng-class='{error:formulario.boleta_uno.$invalid && !formulario.$pristine}'>  </p>
 	</fieldset>
 	</div>
 	<div class="input-field col s6">
 	<fieldset>
 		<legend>Mes 2</legend>
-		<p>Mes: <input type="date" min="2017-06-01" ng-model="mes_dos" name="mes_dos">
+		<p>Mes: <input type="date" min="2017-06-01" ng-model="mes_dos" name="mes_dos"  data-ng-class='{error:formulario.mes_dos.$invalid && !formulario.$pristine}'>
 		  </p>
-		<p>Consumo : <input type="number" ng-model="consumo_dos" name="consumo_dos" placeholder="Valores en kwh">  </p>
-		<p>Núnero de boleta : <input type="number" ng-model="boleta_dos" name="boleta_dos">  </p>
+		<p>Consumo : <input type="number" ng-model="consumo_dos" name="consumo_dos" placeholder="Valores en kwh"  data-ng-class='{error:formulario.consumo_dos.$invalid && !formulario.$pristine}'>  </p>
+		<p>Núnero de boleta : <input type="number" ng-model="boleta_dos" name="boleta_dos"  data-ng-class='{error:formulario.boleta_dos.$invalid && !formulario.$pristine}'>  </p>
 	</fieldset>
 </div>
 <div class="input-field col s6">
 	<fieldset>
 		<legend>Mes 3</legend>
-		<p>Mes: <input type="date" min="2017-06-01" ng-model="mes_tres" name="mes_tres">
+		<p>Mes: <input type="date" min="2017-06-01" ng-model="mes_tres" name="mes_tres"  data-ng-class='{error:formulario.mes_tres.$invalid && !formulario.$pristine}'>
 		  </p>
-		<p>Consumo : <input type="number" ng-model="consumo_tres" name="consumo_tres" placeholder="Valores en kwh">  </p>
-		<p>Núnero de boleta : <input type="number" ng-model="boleta_tres" name="boleta_tres">  </p>
+		<p>Consumo : <input type="number" ng-model="consumo_tres" name="consumo_tres" placeholder="Valores en kwh"  data-ng-class='{error:formulario.consumo_tres.$invalid && !formulario.$pristine}'>  </p>
+		<p>Núnero de boleta : <input type="number" ng-model="boleta_tres" name="boleta_tres"  data-ng-class='{error:formulario.boleta_tres.$invalid && !formulario.$pristine}'>  </p>
 	</fieldset>
 </div>
 <div class="input-field col s6">
 	<fieldset>
 		<legend>Mes 4</legend>
-		<p>Mes: <input type="date" min="2017-06-01" ng-model="mes_cuatro" name="mes_cuatro">
+		<p>Mes: <input type="date" min="2017-06-01" ng-model="mes_cuatro" name="mes_cuatro"  data-ng-class='{error:formulario.mes_cuatro.$invalid && !formulario.$pristine}'>
 		  </p>
-		<p>Consumo : <input type="number" ng-model="consumo_cuatro" name="consumo_cuatro" placeholder="Valores en kwh">  </p>
-		<p>Núnero de boleta : <input type="number" ng-model="boleta_cuatro" name="boleta_cuatro">  </p>
+		<p>Consumo : <input type="number" ng-model="consumo_cuatro" name="consumo_cuatro" placeholder="Valores en kwh"  data-ng-class='{error:formulario.consumo_cuatro.$invalid && !formulario.$pristine}'>  </p>
+		<p>Núnero de boleta : <input type="number" ng-model="boleta_cuatro" name="boleta_cuatro"  data-ng-class='{error:formulario.boleta_cuatro.$invalid && !formulario.$pristine}'>  </p>
 	</fieldset>
 </div>
 <div class="input-field col s6">
 	<fieldset>
 		<legend>Mes 5</legend>
-		<p>Mes: <input type="date" min="2017-06-01" ng-model="mes_cinco" name="mes_cinco">
+		<p>Mes: <input type="date" min="2017-06-01" ng-model="mes_cinco" name="mes_cinco"  data-ng-class='{error:formulario.mes_cinco.$invalid && !formulario.$pristine}'>
 		  </p>
-		<p>Consumo : <input type="number" ng-model="consumo_cinco" name="consumo_cinco" placeholder="Valores en kwh">  </p>
-		<p>Núnero de boleta : <input type="number" ng-model="boleta_cinco" name="boleta_cinco">  </p>
+		<p>Consumo : <input type="number" ng-model="consumo_cinco" name="consumo_cinco" placeholder="Valores en kwh"  data-ng-class='{error:formulario.consumo_cinco.$invalid && !formulario.$pristine}'>  </p>
+		<p>Núnero de boleta : <input type="number" ng-model="boleta_cinco" name="boleta_cinco"  data-ng-class='{error:formulario.boleta_cinco.$invalid && !formulario.$pristine}'>  </p>
 	</fieldset>
 </div>
 <div class="input-field col s6">
 	<fieldset>
 		<legend>Mes 6</legend>
-		<p>Mes: <input type="date" min="2017-06-01" ng-model="mes_seis" name="mes_seis">
+		<p>Mes: <input type="date" min="2017-06-01" ng-model="mes_seis" name="mes_seis"  data-ng-class='{error:formulario.mes_seis.$invalid && !formulario.$pristine}'>
 		  </p>
-		<p>Consumo : <input type="number" ng-model="consumo_seis" name="consumo_seis" placeholder="Valores en kwh">  </p>
-		<p>Núnero de boleta : <input type="number" ng-model="boleta_seis" name="boleta_seis">  </p>
+		<p>Consumo : <input type="number" ng-model="consumo_seis" name="consumo_seis" placeholder="Valores en kwh"  data-ng-class='{error:formulario.consumo_seis.$invalid && !formulario.$pristine}'>  </p>
+		<p>Núnero de boleta : <input type="number" ng-model="boleta_seis" name="boleta_seis"  data-ng-class='{error:formulario.boleta_seis.$invalid && !formulario.$pristine}'>  </p>
 	</fieldset>
 </div>
 	<!-- </div>
@@ -141,12 +142,13 @@
 	<!-- <p style="color: red;">Kwh en promedio que se deben arrorar por mes: {{ahorro}}</p>
 	<p style="color: blue;">Consumo promedio en Kwh mensual para lograr meta {{consumo}}</p> -->
 	</div>
-	<div class="input-field col s6"><input class="btn waves-effect waves-yellow red" type="button" value="Ingresar Consumo" ng-click="insert()"></div>
+	<div class="input-field col s6"><input class="btn waves-effect waves-yellow red" type="button" value="Ingresar Consumo" ng-click="insert()" data-ng-disabled='!formulario.$valid'></div>
 	</div>
 </form>
 </fieldset>
 <br>
-<!-- <fieldset class="field_set">
+<!-- <div class="input-field col s6"><input class="btn waves-effect waves-yellow red" type="button" value="Ingresar Consumo" ng-click="insert()" data-ng-disabled='!formulario.$valid'></div>
+ --><!-- <fieldset class="field_set">
 	<legend style="font-size:160%; color:grey">Respaldo información</legend>
 	 <button class="waves-effect waves-red btn-large  blue darken-3" ngf-select="uploadFiles($files, $invalidFiles)" multiple
           accept="image/*" ngf-max-height="10000" ngf-max-size="10MB">
