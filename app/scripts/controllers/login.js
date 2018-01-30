@@ -149,11 +149,14 @@ angular.module('ebarrioApp')
         
         console.log(data);      
         if(data.data==='correct'){
+          console.log("data.config");
           console.log(data.config.data.theusername);
           $rootScope.usuario=data.config.data.theusername;
+          sessionStorage.setItem("usuario", $rootScope.usuario);
           window.location.href = '/#!/inicio';
         } else {
           $scope.errorMsg = "Usuario o Contraseña no validos";
+           toastr.error('Usuario o Contraseña incorrectos');
         }
       })
       // .error(function(data, status, headers, config) {
@@ -163,6 +166,9 @@ angular.module('ebarrioApp')
   }
   console.log($rootScope.usuario);
   $scope.user=$rootScope.usuario;
+  $scope.usuario= sessionStorage.getItem("usuario");
+  console.log("session: ");
+  console.log($scope.usuario);
   console.log("usuario: ");
   console.log($scope.user);
 

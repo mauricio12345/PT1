@@ -18,7 +18,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngFileUpload'
+    'ngFileUpload',
+    'chart.js'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -34,6 +35,7 @@ angular
       })
       .when('/login', {
         templateUrl: 'views/login.html',
+        // controller: 'homeController',
         controller: 'LoginCtrl',
         controllerAs: 'login'
       })
@@ -84,7 +86,7 @@ angular
       })
       .when('/proyectos', {
         templateUrl: 'views/proyectos.html',
-        controller: 'ProyectosCtrl',
+        controller: 'ViewProyectosCtrl',
         controllerAs: 'proyectos'
       })
       .when('/efficient', {
@@ -141,6 +143,11 @@ angular
         templateUrl: 'views/efficienthome.html',
         controller: 'EfficienthomeCtrl',
         controllerAs: 'efficienthome'
+      })
+      .when('/detallesproyecto/:id', {
+        templateUrl: 'views/detallesproyecto.html',
+        controller: 'ViewProyectosCtrl',
+        controllerAs: 'detallesproyecto'
       })
       .otherwise({
         redirectTo: '/'
@@ -334,9 +341,29 @@ angular
         Consumohistorico.get({id: id}, function (data) {
             console.log(data.response);
             $scope.consumohistorico = data.response;
+            console.log("consumo historico:::::");
+            console.log(data.response);
         })
 
         $scope.remove = function (id) {
+            Proyectos.delete({id: id}).$promise.then(function (data) {
+                if (data.response) {
+                    $route.reload();
+                }
+            })
+        }
+    }])
+    .controller('ViewProyectosCtrl',['$scope','Proyectos','$routeParams', '$route', function($scope,Proyectos,$routeParams, $route){
+      var vm=this;
+    vm.menutemplate={
+      url:'views/menu.html'
+    };
+    var id = $routeParams.id;
+     Proyectos.get({id: id}, function (data) {
+            console.log(data.response);
+            $scope.proyectos = data.response;
+        })
+      $scope.remove = function (id) {
             Proyectos.delete({id: id}).$promise.then(function (data) {
                 if (data.response) {
                     $route.reload();

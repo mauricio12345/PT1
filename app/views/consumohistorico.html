@@ -1,22 +1,7 @@
-<div ng.controller="ConsumohistoricoCtrl">
-	<div ng-include="consumohistorico.menutemplate.url"></div>
-</div>
-<div ng-controller="ViewCtrl">
-	<div class="container">
-		<div ng-repeat="c in consumohistorico">
-			<div ng-if="!consumohistorico">
-				<div class="preloader-wrapper active">
-    <div class="spinner-layer spinner-red-only">
-      <div class="circle-clipper left">
-        <div class="circle"></div>
-      </div><div class="gap-patch">
-        <div class="circle"></div>
-      </div><div class="circle-clipper right">
-        <div class="circle"></div>
-      </div>
-    </div>
-  </div>
-			</div>
+<div ng-include="consumohistorico.menutemplate.url"></div>
+
+
+<div ng-repeat="c in consumohistorico">
 			<h3 style="color: green;">Cliente: {{c.ncliente}}</h3>
 			<div class="row">
 				<div class="input-field col s6">
@@ -93,5 +78,9 @@
 			</div>
 			
 		</div>
+		<button ng-clic="grafica(c.consumo_uno,c.consumo_dos,c.consumo_tres)">ver grafico</button>
+		
+		<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 	</div>
+
 </div>

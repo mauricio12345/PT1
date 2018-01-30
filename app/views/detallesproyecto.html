@@ -1,0 +1,26 @@
+<div ng-include="detallesproyecto.menutemplate.url"></div>
+
+<div ng-controller="ViewProyectosCtrl" class="container">
+
+<div class="row">
+	<h1 style="color: green">Proyecto: {{proyectos.nombre}}</h1>
+	<div class="container">
+	<table>
+		<thead>
+          <tr>
+              <th>Participantes</th>
+              <th>Estado</th>
+              <th>Metas mensuales</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          	<td><button ng-click="invento({{proyectos.id}})"> Ver participantes</button></td>
+          	<td></td>
+          	<td></td>
+          </tr>
+        </tbody>  
+	</table>
+</div>
+</div>
+</div>

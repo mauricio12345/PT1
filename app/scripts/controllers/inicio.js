@@ -8,7 +8,7 @@
  * Controller of the ebarrioApp
  */
 angular.module('ebarrioApp')
-  .controller('InicioCtrl', function () {
+  .controller('InicioCtrl', function ($scope) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -18,6 +18,8 @@ angular.module('ebarrioApp')
     vm.menutemplate={
       url:'views/menu.html'
     };
+     $scope.usuario= sessionStorage.getItem("usuario");
+    toastr.success('Bienvenido '+ $scope.usuario );
      $(document).ready(function(){
       
     $('.slider').slider();

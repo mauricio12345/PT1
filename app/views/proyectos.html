@@ -1,29 +1,26 @@
 <div ng-include="proyectos.menutemplate.url"></div>
 <!-- <p ng-show="$parent.settings.success">{{$parent.settings.success}}</p> -->
-  <div ng-controller="ViewCtrl" class="container">
+  <div ng-controller="ViewProyectosCtrl" class="container">
   <div class="row">
-  <div class="col s4 m6">
-     <div ng-repeat="p in proyecto" class="card small">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="{{p.portada}}">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">{{p.nombre}}<i class="material-icons right">more_vert</i></span><a href="/#!/ubicacion">Ubicación Proyectos</a>
-          <a href="/#!/destallesproyecto">Detalles Proyecto</a> 
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Información<i class="material-icons right">close</i></span>
-          <li type="circle">Responsable: {{p.razonsocial}}</li>
-           <li type="circle">Rut: {{p.rutsocial}}</li>
-           <li type="circle">Tipo organizacion: {{p.organizacion}}</li>
-           <li type="circle">Nombre proyecto: {{p.nombre}}</li>
-           <li type="circle">Costo para usuarios: {{p.tarifa}}</li>
-           <li type="circle">Tipo de beneficiarios: {{p.destinatario}}</li>
-           <li type="circle">Beneficiarios directos: {{p.beneficiariodirecto}}</li>
-           <li type="circle">Beneficiarios indirectos: {{p.beneficiarioindirecto}}</li>
-           <li type="circle">Duracion proyecto: {{p.duracion}}</li>
-           <li type="circle">Region proyecto: {{p.region}}</li>
-           
-        </div>
-      </div>
+  <table class="bordered striped">
+        <thead>
+          <tr>
+              <td>Nombre proyecto
+          </td>
+          <td> Estado proyecto</td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="p in proyectos | filter: {estado: 'En proceso fase 1'} ">
+            <td>{{p.nombre}}</td>
+            <td>{{p.estado}}</td>
+            <td><a ng-href="#!/detallesproyecto/{{p.idproyecto}}">Detalles<i class="material-icons left">info</i> </a>{{p.id}}</td>
+            <!-- <td><a ng-click="update(p.idproyecto)">Aprobar<i class="material-icons left">check</i> </a>
+                     </td>
+            <td><a href="#!/editar/{{p.idproyecto}}">Editar<i class="material-icons left">edit</i> </a>
+                    <a ng-click="submit(p.idproyecto)"></td> -->
+          </tr>
+        </tbody>
+      </table>
       </div>
