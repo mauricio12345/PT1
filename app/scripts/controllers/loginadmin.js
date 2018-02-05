@@ -14,29 +14,23 @@ angular.module('ebarrioApp')
       'AngularJS',
       'Karma'
     ];
-    $scope.insertdata=function(){
-    console.log("triggered");
- $http.post("loginadmin.php",{'theusername':$scope.user, 'thepassword':$scope.pswd})
-
-
-  .then(function(data, status, headers, config) {
-        var mssg = data.MESSAGE;
-        
-        console.log(data);      
-        if(data.data==='correct'){
-          console.log(data.config.data.theusername);
-          $rootScope.usuario=data.config.data.theusername;
-          
+   $scope.insertdata=function(){
+      $http({
+            method: 'GET',
+            url: 'http://localhost:8080/API/loginadmin',
+            params: {correo: $scope.user, contrasena: $scope.pswd}
+            })
+      .then(function(respuesta) {
+          $scope.consumos = respuesta.data.consumos ;
+          console.log(respuesta);
+          sessionStorage.setItem("usuario",$scope.user);
           window.location.href = '/#!/casillaproyectos';
-        } else {
-          $scope.errorMsg = "Usuario o Contraseña no validos";
-        }
-      })
-      // .error(function(data, status, headers, config) {
-      //   $scope.errorMsg = 'Unable to LOGIN';
-      // })
-            
-  }
+        }, 
+      function(respuesta) { // optional
+            console.log(respuesta)
+            toastr.error('Usuario o contraseña incorrectos');
+        });
+    }
   console.log($rootScope.usuario);
   $scope.user=$rootScope.usuario;
   console.log("usuario: ");

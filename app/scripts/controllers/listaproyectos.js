@@ -19,10 +19,33 @@ angular.module('ebarrioApp')
       url:'views/menu.html'
     };
     $scope.usuario= sessionStorage.getItem("usuario");
-    $scope.unirse= function(id,usuario){
+   $scope.proyecto = function(){
+        console.log("va la variable de sesion");
+        console.log($scope.usuario);
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8080/API/verproyectos'
+            })
+      .then(function(respuesta) {
+          $scope.proyectos = respuesta.data.proyectos ;
+          console.log(respuesta);
+          // toastr.success('done', 'Correcto');
+        }, 
+      function() { // optional
+            //toastr.error('Error faltan datos', 'Error');
+            // $location.path('/');
+        });
+    }
+     $scope.verProyecto = function(pid){
+        console.log("proyectos");
+        console.log("id::");
+        console.log(pid);
+       sessionStorage.setItem("pid2",pid);}
+
+       $scope.unirse= function(id,usuario){
       var result=confirm("¿Desea unirse a este proyecto?");
       if(result){
-      $http.post("http://localhost:8080/dashboard/unir.php",{'id':id, 'usuario':usuario
+      $http.post("unir.php",{'id':id, 'usuario':usuario
     })
 
 
@@ -39,4 +62,5 @@ angular.module('ebarrioApp')
             
 }
     }
+
   });

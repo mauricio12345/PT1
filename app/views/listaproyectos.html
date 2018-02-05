@@ -1,7 +1,7 @@
-<div ng-controller="ListaproyectosCtrl"><div ng-include="listaproyectos.menutemplate.url"></div></div>
+<div ng-init="proyecto()" ng-include="listaproyectos.menutemplate.url"></div>
 
 <div class="container">
-  <table ng-controller="HomeCtrl" class="bordered striped">
+  <table class="bordered striped">
         <thead>
           <tr>
               <td>Nombre proyecto
@@ -21,10 +21,10 @@
                 <i class="material-icons">menu</i>
               </a>
               
-                <td><a class="btn-floating green" ng-href="#!/detalles/{{p.idproyecto}}"><i class="material-icons">menu</i></a></td>
-                <td><a class="btn-floating red" ng-click="remove(p.idproyecto)"><i class="material-icons">remove_circle</i></a></td>
-                <td><a class="btn-floating blue" href="#!/editar/{{p.idproyecto}}"><i class="material-icons">edit</i></a></td>
-                <td><a class="btn-floating yellow" ng-click="unirse(p.idproyecto,usuario)"><i class="material-icons">attach_file</i></a></td>
+                <td><a class="btn-floating green" ng-href="#!/detallesproyecto" ng-click="verProyecto(p.idproyectos)"><i class="material-icons">menu</i></a></td>
+                <td><a class="btn-floating red" ng-click="remove(p.idproyectos)"><i class="material-icons">remove_circle</i></a></td>
+                <td><a class="btn-floating blue" href="#!/editar/{{p.idproyectos}}"><i class="material-icons">edit</i></a></td>
+                <td><a class="btn-floating yellow" ng-click="unirse(p.idproyectos,usuario)"><i class="material-icons">attach_file</i></a></td>
               
           </div>
           </td>

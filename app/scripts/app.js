@@ -79,9 +79,9 @@ angular
         controller: 'EditarCtrl',
         controllerAs: 'editar'
       })
-      .when('/detallecasilla/:id', {
+      .when('/detallecasilla/', {
         templateUrl: 'views/detallecasilla.html',
-        controller: 'ViewCtrl',
+        controller: 'DetallecasillaCtrl',
         controllerAs: 'detallecasilla'
       })
       .when('/proyectos', {
@@ -144,15 +144,107 @@ angular
         controller: 'EfficienthomeCtrl',
         controllerAs: 'efficienthome'
       })
-      .when('/detallesproyecto/:id', {
+      .when('/detallesproyecto', {
         templateUrl: 'views/detallesproyecto.html',
-        controller: 'ViewProyectosCtrl',
+        controller: 'DetallesproyectoCtrl',
         controllerAs: 'detallesproyecto'
       })
       .otherwise({
         redirectTo: '/'
       });
   })
+// .controller("BarCtrl", function ($scope,Consumohistorico,$routeParams,$http,$rootScope) {
+//   $scope.fecha = new Date(Date.now())
+//     $scope.fecha2 = new Date(Date.now())
+//     $scope.fecha3 = new Date(Date.now())
+//     $scope.fecha4 = new Date(Date.now())
+//     $scope.fecha5 = new Date(Date.now())
+//     $scope.fecha6 = new Date(Date.now())
+//     $scope.fecha.setMonth($scope.fecha.getMonth() - 1)
+//     $scope.fecha2.setMonth($scope.fecha2.getMonth() - 2)
+//     $scope.fecha3.setMonth($scope.fecha3.getMonth() - 3)
+//     $scope.fecha4.setMonth($scope.fecha4.getMonth() - 4)
+//     $scope.fecha5.setMonth($scope.fecha5.getMonth() - 5)
+//     $scope.fecha6.setMonth($scope.fecha6.getMonth() - 6)
+//     $scope.fecha=$scope.fecha.toJSON().slice(0,10).replace(/-/g,'/') 
+//     $scope.fecha2=$scope.fecha2.toJSON().slice(0,10).replace(/-/g,'/') 
+//     $scope.fecha3=$scope.fecha3.toJSON().slice(0,10).replace(/-/g,'/') 
+//     $scope.fecha4=$scope.fecha4.toJSON().slice(0,10).replace(/-/g,'/') 
+//     $scope.fecha5=$scope.fecha5.toJSON().slice(0,10).replace(/-/g,'/') 
+//     $scope.fecha6=$scope.fecha6.toJSON().slice(0,10).replace(/-/g,'/')
+//     // var id = $routeParams.id;    
+//     // Consumohistorico.get({id: id}, function (data) {
+//     //         console.log(data.response);
+//     //         $scope.consumohistorico = data.response;
+//     //         console.log("consumo historico:::::");
+//     //         console.log(data.response);
+//     //     }) 
+//     $scope.usuario= sessionStorage.getItem("usuario");
+// console.log("estoy antes de selectgrafico");
+//  $http.get("selectgrafico.php",{
+//                 'usuario':$scope.usuario})
+//     .then(function(response) {
+//         var data = eval(response.data);
+//         var e   = data[0];
+//         var f   = data[1];
+//         var m   = data[2];
+//         var a   = data[3];
+//         var ma  = data[4];
+//         var j   = data[5];
+//         var b1   = data[6];
+//         var b2   = data[7];
+//         var b3   = data[8];
+//         var b4   = data[9];
+//         var b5  = data[10];
+//         var b6   = data[11];
+//         var c1   = data[12];
+//         var c2   = data[13];
+//         var c3   = data[14];
+//         var c4   = data[15];
+//         var c5  = data[16];
+//         var c6   = data[17];
+
+//         var promedio=(e+f+m+a+ma+j)/6;
+//         sessionStorage.setItem("prom", promedio);
+//         var promedio1=(e+f+m+a+ma+j)/6;
+//         console.log(response.data);
+//         console.log("dato e::");
+//         console.log(e);
+//         console.log(f);
+//        $scope.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
+//         $scope.labels = [c1,c2,c3,c4,c5,c6];
+//   $scope.series = ['Pesos $', 'Kwh'];
+
+//   $scope.data = [
+//     [e,f,m,a,ma,j],
+//     [promedio,promedio,promedio,promedio1,promedio1,promedio1]
+//   ];
+//   $scope.datasetOverride = [
+//       {
+//         label: "Bar chart",
+//         borderWidth: 1,
+//         type: 'bar'
+//       },
+//       {
+//         label: "Line chart",
+//         borderWidth: 3,
+//         hoverBackgroundColor: "rgba(255,99,132,0.4)",
+//         hoverBorderColor: "rgba(255,99,132,1)",
+//         type: 'line'
+//       }
+//     ];
+//     });
+   
+
+//       // $scope.labels = [$scope.fecha, $scope.fecha2, $scope.fecha3, $scope.fecha4, $scope.fecha5, $scope.fecha6];
+//       // $scope.series = ['Series A', 'Series B'];
+
+  
+      
+
+  
+  
+// })
 
   .controller('HomeCtrl', ['$scope', 'Proyectos', '$route', function ($scope, Proyectos, $route) {
   var vm=this;
@@ -240,118 +332,33 @@ angular
         }}
     }])
 
-    .controller('AddUserCtrl', ['$scope', 'Proyectos', 'Usuarios', '$route', function ($scope, Proyectos, Usuarios, $route) {
+    
+
+
+
+
+    .controller('ViewCtrl', [ function ($scope,$http) {
       var vm=this;
     vm.menutemplate={
       url:'views/menu.html'
     };
-        Usuarios.get(function (data) {
-            $scope.proyecto = data.response;
-        })
-
-        $scope.settings = {
-            pageTitle: "Agregar usuario a un Proyecto",
-            action: "Agregar"
-        };
-
-        $scope.usuario = {
-            idusuario: "",
-            nombre: "",
-            apellido: "",
-            contrasena: "",
-            correo: ""
-        };
-
-        $scope.submit = function () {
-          var result = confirm("Se registrara como nuevo usuario ¿Desea continuar?");
-    if (result) {
-            console.log("estoy agreango usuario");
-            Usuarios.save({usuario: $scope.usuario}).$promise.then(function (data) {
-                if (data.response) {
-                    angular.copy({}, $scope.proyecto);
-                    $scope.settings.success = "El usuario ha sido vinculado correctamente!";
-                    console.log("agregue un usuario");
-                }
+       $scope.proyecto = function(){
+        console.log("va la variable de sesion");
+        console.log($scope.usuario);
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8080/API/verproyectos'
             })
-        }}
-    }])
-
-        .controller('AddEfficientCtrl', ['$scope', 'Proyectos', 'Efficient', '$route', function ($scope, Proyectos, Efficient, $route) {
-      var vm=this;
-    vm.menutemplate={
-      url:'views/menu.html'
-    };
-        Proyectos.get(function (data) {
-            $scope.proyecto = data.response;
-        })
-
-        $scope.settings = {
-            pageTitle: "Agregar usuario a un Proyecto",
-            action: "Agregar"
-        };
-
-        $scope.efficient = {
-            nombre: "",
-            apellido: "",
-            apikey: ""
-        };
-
-        $scope.submit = function () {
-          var result = confirm("Se registrara una nueva instancia de efficient home ¿Desea continuar?");
-    if (result) {
-            Efficient.save({efficient: $scope.efficient}).$promise.then(function (data) {
-                if (data.response) {
-                    angular.copy({}, $scope.efficient);
-                    $scope.settings.success = "Efficient home ha sido agregado exitosamente!";
-                    console.log("agregue un usuario");
-                }
-            })
-        }}
-    }])
-
-
-    .controller('ViewCtrl', ['$scope', 'Proyectos', 'Usuarios', 'Participante','Region','Efficient','Consumohistorico','$routeParams', '$route', function ($scope, Proyectos, Usuarios, Participante, Region, Efficient,Consumohistorico, $routeParams, $route) {
-      var vm=this;
-    vm.menutemplate={
-      url:'views/menu.html'
-    };
-        var id = $routeParams.id;
-
-        Usuarios.get({id: id}, function (data) {
-            $scope.usuario = data.response;
+      .then(function(respuesta) {
+          $scope.proyectos = respuesta.data.consumos ;
+          console.log(respuesta);
+          // toastr.success('done', 'Correcto');
+        }, 
+      function() { // optional
+            //toastr.error('Error faltan datos', 'Error');
+            // $location.path('/');
         });
-
-        Proyectos.get({id: id}, function (data) {
-            console.log(data.response);
-            $scope.proyectos = data.response;
-        });
-
-        Participante.get({id: id}, function (data) {
-            console.log(data.response);
-            $scope.participante = data.response;
-        });
-        Region.get({id: id}, function (data) {
-            console.log(data.response);
-            $scope.regiones = data.response;
-        });
-        Efficient.get({id: id}, function (data) {
-            console.log(data.response);
-            $scope.efficient = data.response;
-        });
-        Consumohistorico.get({id: id}, function (data) {
-            console.log(data.response);
-            $scope.consumohistorico = data.response;
-            console.log("consumo historico:::::");
-            console.log(data.response);
-        })
-
-        $scope.remove = function (id) {
-            Proyectos.delete({id: id}).$promise.then(function (data) {
-                if (data.response) {
-                    $route.reload();
-                }
-            })
-        }
+    }
     }])
     .controller('ViewProyectosCtrl',['$scope','Proyectos','$routeParams', '$route', function($scope,Proyectos,$routeParams, $route){
       var vm=this;
@@ -372,35 +379,5 @@ angular
         }
     }])
 
-    .factory('Usuarios', ['$resource', function ($resource) {
-        return $resource('http://localhost:8080/BarrioAPI/usuarios/id', {id: "@_id"}, {
-            update: {method: "PUT", params: {id: "@_id"}}
-        })
-    }])
-
-    .factory('Proyectos', ['$resource', function ($resource) {
-        return $resource('http://localhost:8080/BarrioAPI/proyectos/:id', {id: "@_id"}, {
-            update: {method: "PUT", params: {id: "@_id"}}
-        })
-    }])
-    .factory('Participante', ['$resource', function ($resource) {
-        return $resource('http://localhost:8080/BarrioAPI/participantes/', {id: "@_id"}, {
-            update: {method: "PUT", params: {id: "@_id"}}
-        })
-    }])
-    .factory('Region', ['$resource', function ($resource) {
-        return $resource('http://localhost:8080/BarrioAPI/region/:id', {id: "@_id"}, {
-            update: {method: "PUT", params: {id: "@_id"}}
-        })
-    }])
-    .factory('Efficient', ['$resource', function ($resource) {
-        return $resource('http://localhost:8080/BarrioAPI/efficient/:id', {id: "@_id"}, {
-            update: {method: "PUT", params: {id: "@_id"}}
-        })
-    }])
-    .factory('Consumohistorico', ['$resource', function ($resource) {
-            return $resource('http://localhost:8080/BarrioAPI/consumohistorico/:id', {id: "@_id"}, {
-                update: {method: "PUT", params: {id: "@_id"}}
-            })
-        }])
+    
 

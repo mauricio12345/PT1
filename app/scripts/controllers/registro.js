@@ -14,26 +14,21 @@ angular.module('ebarrioApp')
       'AngularJS',
       'Karma'
     ];
-     $scope.usuario = {
-            nombre: "",
-            apellido:"",
-            contrasena:"",
-            correo:""
-        };
-    console.log($scope.usuario.apellido);    
+     
+    console.log($scope.nombre);    
     
     $scope.insert=function(){   
         var result=confirm("¿Desea registrarse en la plataforma?");
         if (result) {   
-        	console.log($scope.usuario.nombre);
+        	console.log($scope.nombre);
             $http.post("insert_user.php", {
-                'nombre':$scope.usuario.nombre,
-                'apellido':$scope.usuario.apellido,
-                'contrasena':$scope.usuario.contrasena,
-                'correo':$scope.usuario.correo
+                'nombre':$scope.nombre,
+                'contrasena':$scope.contrasena,
+                'correo':$scope.correo
             }).then(function(data, status, headers, config){
                     console.log("Data Inserted Successfully");
                     console.log(data.data);
+                    console.log("dato enviados");
                     console.log($scope.nombre);
                     console.log($scope.apellido);
                     console.log($scope.correo);

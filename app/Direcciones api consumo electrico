@@ -15,3 +15,5 @@ https://api.mlab.com/api/1/databases/efficientmdb/collections/HistoricoCondensac
 
 //HISTORICO QUERY
 https://api.mlab.com/api/1/databases/efficientmdb/collections/HistoricoCondensacion?q={"fecha":"25/05/17"}&apiKey=7K2Y6doZUobEqRHLROy1D26_rHQOL89B
+
+https://api.mlab.com/api/1/databases/efficientmdb/collections/ConsumoDia?q={"nombre":"Franco"}&apiKey=7K2Y6doZUobEqRHLROy1D26_rHQOL89B

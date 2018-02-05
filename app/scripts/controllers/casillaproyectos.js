@@ -9,12 +9,8 @@
  */
 
 angular.module('ebarrioApp')
-.factory('Proyectos', ['$resource', function ($resource) {
-        return $resource('http://localhost:8080/BarrioAPI/proyectos/:id', {id: "@_id"}, {
-            update: {method: "PUT", params: {id: "@_id"}}
-        })
-    }])
-  .controller('CasillaproyectosCtrl', function (Proyectos,$scope,$http) {
+
+  .controller('CasillaproyectosCtrl', function ($scope,$http) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -25,28 +21,51 @@ angular.module('ebarrioApp')
     vm.menutemplate={
       url:'views/menu.html'
     };
-    Proyectos.get(function (data) {
-            $scope.proyectos = data.response;
-        })
-    $scope.mostrar=function(hola){
-      if(hola="Postulacion fase 1"){
-        return true;
-      }
-      else{
-        return false;
-      }
+    $scope.proyecto = function(){
+        console.log("va la variable de sesion");
+        console.log($scope.usuario);
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8080/API/verproyectos'
+            })
+      .then(function(respuesta) {
+          $scope.proyectos = respuesta.data.proyectos ;
+          console.log(respuesta);
+          console.log($scope.proyectos);
+
+          // toastr.success('done', 'Correcto');
+        }, 
+      function() { // optional
+            //toastr.error('Error faltan datos', 'Error');
+            // $location.path('/');
+        });
     }
 
-        $scope.remove = function (id) {
-          var result = confirm("¿Seguro que quiere eliminar este proyecto?");
-    if (result) {
-            Proyectos.delete({id: id}).$promise.then(function (data) {
-                if (data.response) {
-                    $route.reload();
-                }
-            })
-        }}
-         $scope.update = function (id) {
+     $scope.verProyecto = function(pid){
+        console.log("proyectos");
+        console.log("id::");
+        console.log(pid);
+       sessionStorage.setItem("pid",pid);}
+      //   $http({
+      //       method: 'GET',
+      //       url: 'http://localhost:8080/API/verproyectoid',
+      //       params: {"id": pid }
+      //       })
+      // .then(function(respuesta) {
+      //     $scope.detalles = respuesta.data ;
+      //      sessionStorage.setItem("detalles",$scope.detalles);
+      //     console.log(respuesta);
+      //     console.log("proyecto");
+      //     console.log($scope.detalles);
+      //     // toastr.success('done', 'Correcto');
+      //   }, 
+      // function() { // optional
+      //       //toastr.error('Error faltan datos', 'Error');
+      //       // $location.path('/');
+      //   });
+    
+    
+     $scope.update = function (id) {
           var result = confirm("¿Seguro que quiere aprobar este proyecto?");
     if (result) {
             $http.post("Estado.php", {
@@ -61,4 +80,5 @@ angular.module('ebarrioApp')
                      });
 }
         }
+      
   });

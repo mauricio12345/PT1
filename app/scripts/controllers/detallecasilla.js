@@ -14,4 +14,26 @@ angular.module('ebarrioApp')
       'AngularJS',
       'Karma'
     ];
+    $scope.pid=sessionStorage.getItem("pid");
+
+    $http({
+            method: 'GET',
+            url: 'http://localhost:8080/API/verproyectoid',
+            params: {"id": $scope.pid }
+            })
+      .then(function(respuesta) {
+          $scope.detalles = respuesta ;
+           
+          console.log(respuesta);
+          console.log("proyecto detalles");
+          console.log($scope.detalles);
+          // toastr.success('done', 'Correcto');
+        }, 
+      function() { // optional
+            //toastr.error('Error faltan datos', 'Error');
+            // $location.path('/');
+        });
+
+
+   
   });

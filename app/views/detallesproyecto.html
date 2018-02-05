@@ -1,26 +1,33 @@
 <div ng-include="detallesproyecto.menutemplate.url"></div>
 
-<div ng-controller="ViewProyectosCtrl" class="container">
+<div  class="container"> 
 
 <div class="row">
-	<h1 style="color: green">Proyecto: {{proyectos.nombre}}</h1>
-	<div class="container">
-	<table>
-		<thead>
+	<h1  style="color: black">Proyecto: {{detalles.nombre}}</h1>
+  <h3 style="color: gray">Ahorro mensual: {{detalles.meta}} %</h3>
+  <h5><p>Para participar en este proyecto no debo superar un consumo mensual de $ {{meta}}</p></h5>
+	<div class="container" >
+    <p></p>
+<table>
+        <thead>
           <tr>
-              <th>Participantes</th>
-              <th>Estado</th>
-              <th>Metas mensuales</th>
+              <th>Participante</th>
+              <th>Consumo actual</th>
+              
           </tr>
         </thead>
-        <tbody>
+
+        <tbody ng-repeat="participante in participantes">
           <tr>
-          	<td><button ng-click="invento({{proyectos.id}})"> Ver participantes</button></td>
-          	<td></td>
-          	<td></td>
+            <td>{{participante.usuarios_correo}}</td>
+            <td ng-if="participante.promedio > detalles.meta"><p class="circulo"></p></td>
+            <td ng-if="participante.promedio < detalles.meta"><p class="circulo_rojo" "></td>
+            <td></td>
           </tr>
-        </tbody>  
-	</table>
+        </tbody>
+      </table>
+ 
+
 </div>
 </div>
 </div>

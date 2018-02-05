@@ -1,17 +1,18 @@
-<div ng-include="detalleconsumo.menutemplate.url"></div>
-
+<div ng-init="consumo()" ng-include="detalleconsumo.menutemplate.url"></div>
 <div class="container">
-	<div ng-repeat="d in consumo">
-		<div class="row">
-        <div class="col s6">
-          <div class="card blue-grey darken-1">
+<canvas id="bar" class="chart chart-bar"
+  chart-data="data" chart-labels="labels"> chart-series="series"
+</canvas>
+<div class="row">
+        <div class="col s12 m6">
+          <div class="card blue darken-1">
             <div class="card-content white-text">
-              <span class="card-title">Consumo dia: {{d.fecha}}</span>
-              <li>Consumo en kwh: {{d.kwh}}	</li>
-              <li>Consumo en pesos: {{d.costokwh}}</li>
+              <span class="card-title">Consumo actual del mes</span>
+              <h3>$ {{suma}}</h3>
             </div>
+            
           </div>
         </div>
       </div>
-	</div>
+
 </div>

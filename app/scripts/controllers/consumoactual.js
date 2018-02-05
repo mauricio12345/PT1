@@ -25,13 +25,36 @@ angular.module('ebarrioApp')
   url: 'https://api.mlab.com/api/1/databases/efficientmdb/collections/ConsumoMes?apiKey=7K2Y6doZUobEqRHLROy1D26_rHQOL89B'
 }).then(function successCallback(response) {
 	$scope.consumo = response.data;
-	console.log(response);
+	console.log(response.data);
     // this callback will be called asynchronously
     // when the response is available
   }, function errorCallback(response) {
-    // called asynchronously if an error occurs
-    // or server returns response with an error status.
+    
   });
+$scope.consumo = function(){
+        $http({
+            method: 'GET',
+            url: 'https://api.mlab.com/api/1/databases/efficientmdb/collections/ConsumoDia?apiKey=7K2Y6doZUobEqRHLROy1D26_rHQOL89B'
+            
+            })
+      .then(function(respuesta) {
+          $scope.consumos = respuesta.data ;
+          console.log($scope.consumos);
+          // toastr.success('done', 'Correcto');
+
+          $scope.labels = [$scope.consumos[0].fecha , $scope.consumos[1].fecha];
+  $scope.series = ['Series A', 'Series B'];
+
+   $scope.data = [
+    [$scope.consumos[0].costokwh , $scope.consumos[1].costokwh],
+      ];
+        },  
+  
+      function() { // optional
+            //toastr.error('Error faltan datos', 'Error');
+            // $location.path('/');
+        });
+    }
  
 
 

@@ -1,6 +1,6 @@
 <div ng-include="proyectos.menutemplate.url"></div>
 <!-- <p ng-show="$parent.settings.success">{{$parent.settings.success}}</p> -->
-  <div ng-controller="ViewProyectosCtrl" class="container">
+  <div ng-controller="ViewCtrl" class="container">
   <div class="row">
   <table class="bordered striped">
         <thead>
@@ -12,7 +12,7 @@
         </thead>
 
         <tbody>
-          <tr ng-repeat="p in proyectos | filter: {estado: 'En proceso fase 1'} ">
+          <tr ng-repeat="p in proyectos | filter: {estado: 'En proceso fase 2'} ">
             <td>{{p.nombre}}</td>
             <td>{{p.estado}}</td>
             <td><a ng-href="#!/detallesproyecto/{{p.idproyecto}}">Detalles<i class="material-icons left">info</i> </a>{{p.id}}</td>
@@ -24,3 +24,4 @@
         </tbody>
       </table>
       </div>
+</div>

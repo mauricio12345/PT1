@@ -92,6 +92,23 @@ body {
 .warning {
   border-color: yellow;
 }
+.circulo {
+     width: 30px;
+     height: 30px;
+     -moz-border-radius: 50%;
+     -webkit-border-radius: 50%;
+     border-radius: 50%;
+     background: #5cb85c;
+}
+
+.circulo_rojo {
+     width: 30px;
+     height: 30px;
+     -moz-border-radius: 50%;
+     -webkit-border-radius: 50%;
+     border-radius: 50%;
+     background: #e8060e;
+}
 /*.ng-valid{
   border: thin solid #090;
 }

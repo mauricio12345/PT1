@@ -8,7 +8,7 @@
  * Controller of the ebarrioApp
  */
 angular.module('ebarrioApp')
-  .controller('DetallesproyectoCtrl', function () {
+  .controller('DetallesproyectoCtrl', function ($http,$scope, almacenador) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -18,17 +18,68 @@ angular.module('ebarrioApp')
     vm.menutemplate={
       url:'views/menu.html'
     };
-    $scope.invento=function(id){
-    $http.post("list_participantes.php", {
-                'id':id
-            }).then(function(data, status, headers, config){
-                    console.log("Data Inserted Successfully");
-                },function(error){
-                    alert("Lo lamentamos! Tenemos problemas para guardar tu consumo, intenta mas tarde");
-                     });
-    $http.get("list_participantes.php")
-    .then(function(response) {
-        $scope.myWelcome = response.data;
-    });
-}
+
+    //consol.log(almacenador.setMetohd)
+
+    $scope.pid=sessionStorage.getItem("pid2");
+    console.log("id pid");
+    console.log($scope.pid);
+
+    $http({
+            method: 'GET',
+            url: 'http://localhost:8080/API/verproyectoid',
+            params: {"id": $scope.pid }
+            })
+      .then(function(respuesta) {
+          $scope.detalles = respuesta.data ;
+           
+          console.log(respuesta);
+          console.log("detalles proyecto");
+          console.log($scope.detalles);
+          $scope.prom=sessionStorage.getItem("prom");
+          $scope.meta=Math.round($scope.prom - (($scope.prom)*($scope.detalles.meta / 100)));
+          // toastr.success('done', 'Correcto');
+        }, 
+      function() { // optional
+            //toastr.error('Error faltan datos', 'Error');
+            // $location.path('/');
+        });
+
+      
+          $http({
+            method: 'GET',
+            url: 'http://localhost:8080/API/verparticipantes',
+            params: {"id": $scope.pid }
+            })
+      .then(function(respuesta) {
+          $scope.participantes = respuesta.data ;
+           
+          console.log(respuesta);
+          console.log("detalles de participantes");
+          console.log($scope.participantes);
+          // toastr.success('done', 'Correcto');
+        }, 
+      function() { // optional
+            //toastr.error('Error faltan datos', 'Error');
+            // $location.path('/');
+        });
+
+       $http({
+            method: 'GET',
+            url: 'http://localhost:8080/API/verpromedios',
+            })
+      .then(function(respuesta) {
+          $scope.promedios = respuesta.data.ventas ;
+           
+          console.log(respuesta);
+          console.log("detalles de promedios");
+          console.log($scope.promedios);
+          // toastr.success('done', 'Correcto');
+        }, 
+      function() { // optional
+            //toastr.error('Error faltan datos', 'Error');
+            // $location.path('/');
+        });
+       
+
   });

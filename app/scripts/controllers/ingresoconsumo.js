@@ -92,27 +92,21 @@ angular.module('ebarrioApp')
                 'mes_uno':$scope.mes_uno,
                 'consumo_uno':$scope.consumo_uno,
                 'consumo_boleta_uno':$scope.consumo_uno,
-                'boleta_uno':$scope.boleta_uno,
                 'mes_dos':$scope.mes_dos,
                 'consumo_dos':$scope.consumo_dos,
                 'consumo_boleta_dos':$scope.consumo_dos,               
-                'boleta_dos':$scope.boleta_dos,
                 'mes_tres':$scope.mes_tres,
                 'consumo_tres':$scope.consumo_tres,
                 'consumo_boleta_tres':$scope.consumo_tres,
-                'boleta_tres':$scope.boleta_tres,
                 'mes_cuatro':$scope.mes_cuatro,
                 'consumo_cuatro':$scope.consumo_cuatro,
                 'consumo_boleta_cuatro':$scope.consumo_cuatro,
-                'boleta_cuatro':$scope.boleta_cuatro,
                 'mes_cinco':$scope.mes_cinco,
                 'consumo_cinco':$scope.consumo_cinco,
                 'consumo_boleta_cinco':$scope.consumo_cinco,
-                'boleta_cinco':$scope.boleta_cinco,
                 'mes_seis':$scope.mes_seis,
                 'consumo_seis':$scope.consumo_seis,
                 'consumo_boleta_seis':$scope.consumo_seis,
-                'boleta_seis':$scope.boleta_seis
             }).then(function(data, status, headers, config){
                     console.log("Data Inserted Successfully");
                     console.log(data.data);
