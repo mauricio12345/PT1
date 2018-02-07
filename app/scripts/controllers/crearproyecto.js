@@ -8,77 +8,23 @@
  * Controller of the ebarrioApp
  */
 angular.module('ebarrioApp')
-.factory('Proyectos', ['$resource', function ($resource) {
-        return $resource('http://localhost:8080/BarrioAPI/proyectos/:id', {id: "@_id"}, {
-            update: {method: "PUT", params: {id: "@_id"}}
-        })
-    }])
-  .controller('CrearproyectoCtrl', function ($scope,$http,Proyectos,$route) {
+
+  .controller('CrearproyectoCtrl', function ($scope,$http,$route) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+
+    $scope.usuario= sessionStorage.getItem("usuario");
     var vm=this;
     vm.menutemplate={
       url:'views/menu.html'
     };
-    var id = $route.id;
+    
 
-        Proyectos.get({id: id}, function (data) {
-            $scope.proyecto = data.response;
-        })
-
-        $scope.remove = function (id) {
-            Proyectos.delete({id: id}).$promise.then(function (data) {
-                if (data.response) {
-                    $route.reload();
-                }
-            })
-        };
-
-        $scope.settings = {
-            pageTitle: "Agregar proyecto",
-            action: "Agregar"
-        };
-
-        $scope.proyecto = {
-            idproyecto: "",
-            razonsocial:"",
-            rutsocial:"",
-            organizacion:"",
-            fechasolicitud:"",
-            nombre:"",
-            tarifa:"",
-            destinatario:"",
-            beneficiariodirecto:"",
-            beneficiarioindirecto:"",
-            dimensiones:"",
-            duracion:"",
-            region: "",
-            estado: "",
-            meta:"",
-            dinero:"",
-            aporte:""
-        };
         console.log("estoy antes del submit");
 
-        // $scope.submit = function (proyecto) {
-        // 	var result = confirm("Se agregará un nuevo proyecto, ¿Desea continuar?");
-        //     console.log("hola estoy antes del if");
-        //   if (result) {
-        //   	console.log("hola entre al if");
-        //     Proyectos.save({proyecto: $scope.proyecto}).$promise.then(function (data) {
-        //     	console.log("voy a agregar un proyecto");
-        //         if (data.response) {
-        //         	console.log("estoy agregando el proyecto");
-        //             angular.copy({}, $scope.proyecto);
-        //             $scope.settings.success = "El proyecto ha sido creado correctamente!";
-        //             alert("El proyecto ha sido creado correctamente!");
-        //         }
-        //     })
-        // } console.log("hola sali del if");}
-        // console.log("hola sali del submit");
         
         $scope.insert=function(){   
         var result=confirm("¿Desea postular el proyecto?");

@@ -109,6 +109,16 @@ body {
      border-radius: 50%;
      background: #e8060e;
 }
+.cuadrado {
+     width: 30px; 
+     height: 30px; 
+     background: #428bca;
+}
+.cuadrado_rojo {
+     width: 30px; 
+     height: 30px; 
+     background: #428bca;
+}
 /*.ng-valid{
   border: thin solid #090;
 }

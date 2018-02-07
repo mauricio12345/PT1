@@ -149,6 +149,11 @@ angular
         controller: 'DetallesproyectoCtrl',
         controllerAs: 'detallesproyecto'
       })
+      .when('/inicioadmin', {
+        templateUrl: 'views/inicioadmin.html',
+        controller: 'InicioadminCtrl',
+        controllerAs: 'inicioadmin'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -335,31 +340,6 @@ angular
     
 
 
-
-
-    .controller('ViewCtrl', [ function ($scope,$http) {
-      var vm=this;
-    vm.menutemplate={
-      url:'views/menu.html'
-    };
-       $scope.proyecto = function(){
-        console.log("va la variable de sesion");
-        console.log($scope.usuario);
-        $http({
-            method: 'GET',
-            url: 'http://localhost:8080/API/verproyectos'
-            })
-      .then(function(respuesta) {
-          $scope.proyectos = respuesta.data.consumos ;
-          console.log(respuesta);
-          // toastr.success('done', 'Correcto');
-        }, 
-      function() { // optional
-            //toastr.error('Error faltan datos', 'Error');
-            // $location.path('/');
-        });
-    }
-    }])
     .controller('ViewProyectosCtrl',['$scope','Proyectos','$routeParams', '$route', function($scope,Proyectos,$routeParams, $route){
       var vm=this;
     vm.menutemplate={

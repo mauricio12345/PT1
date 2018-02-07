@@ -47,6 +47,10 @@
       <li><a class="btn-floating blue" title="Informacion efficient home" href="/#!/efficienthome"><i class="material-icons">info</i></a></li>
     </ul>
   </div>
+  <div ng-repeat="a in usuarios">
+    {{a.idusuarios}}
+  </div>
+  <div ng-init="guardarID(a.idusuarios)"> </div>
 
 
 

@@ -13,17 +13,12 @@ angular.module('ebarrioApp')
     // ...
 
     var meaningOfLife = 42;
+    var url = 'http://localhost:8080'//'http://localhost:8080' //'http://ebarrio.awaresystems.cl'
 
     // Public API here
     return {
-      getMethod: function () {
-        return meaningOfLife;
-      },
-      setMetohd: function(variable) {
-        meaningOfLife = variable;
+      getUrl: function () {
+        return url;
       }
-
-
-
     };
   });

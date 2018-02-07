@@ -9,7 +9,7 @@
  */
 angular.module('ebarrioApp')
 
-  .controller('ConsumohistoricoCtrl', function ($scope, $http) {
+  .controller('ConsumohistoricoCtrl', function ($scope, $http, almacenador) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -22,10 +22,9 @@ angular.module('ebarrioApp')
 
     $scope.consumo = function()
     {
-
           $http({
                 method: 'GET',
-                url: 'http://localhost:8080/API/verconsumoid',
+                url: almacenador.getUrl()+'/API/verconsumoid',
                 params: {"correo": $scope.usuario }
                 })
           .then(function(response) {
@@ -59,7 +58,7 @@ angular.module('ebarrioApp')
   $scope.guardarConsumo = function(){
      $http({
      method: 'POST',
-     url: 'promedios.php',
+     url: 'insert_consumo.php',
      params: {"promedio": $scope.prom ,"correo": $scope.usuario }
     })
      .then(function(response) {

@@ -14,6 +14,10 @@ angular.module('ebarrioApp')
       'AngularJS',
       'Karma'
     ];
+    $scope.destroy=function(){
+      sessionStorage.clear();
+    }
+
     $( document ).ready(function(){
         $('.button-collapse').sideNav();
         $('.button-collapse').sideNav('hide');

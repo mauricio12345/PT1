@@ -10,7 +10,7 @@
 angular.module('ebarrioApp')
 
   
-  .controller('LoginCtrl', function ($scope,$http,$rootScope,$location) {
+  .controller('LoginCtrl', function ($scope,$http,$rootScope,$location, almacenador) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -23,7 +23,7 @@ angular.module('ebarrioApp')
      $scope.insertdata=function(){
       $http({
             method: 'GET',
-            url: 'http://localhost:8080/API/login',
+            url: almacenador.getUrl()+'/API/login',
             params: {correo: $scope.user, contrasena: $scope.pswd}
             })
       .then(function(respuesta) {

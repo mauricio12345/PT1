@@ -10,7 +10,7 @@
 
 angular.module('ebarrioApp')
 
-  .controller('CasillaproyectosCtrl', function ($scope,$http) {
+  .controller('CasillaproyectosCtrl', function ($scope,$http, almacenador) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -26,7 +26,7 @@ angular.module('ebarrioApp')
         console.log($scope.usuario);
         $http({
             method: 'GET',
-            url: 'http://localhost:8080/API/verproyectos'
+            url: almacenador.getUrl()+'/API/verproyectos'
             })
       .then(function(respuesta) {
           $scope.proyectos = respuesta.data.proyectos ;

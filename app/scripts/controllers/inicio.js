@@ -8,7 +8,7 @@
  * Controller of the ebarrioApp
  */
 angular.module('ebarrioApp')
-  .controller('InicioCtrl', function ($scope) {
+  .controller('InicioCtrl', function ($scope,$http,almacenador) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -20,22 +20,25 @@ angular.module('ebarrioApp')
     };
      $scope.usuario= sessionStorage.getItem("usuario");
     toastr.success('Bienvenido '+ $scope.usuario );
-   $(document).ready(function(){ 
-                
-                    $.ajax({
-                        type:'get',
-                        url:'user.php',
-                        data:'nombre='+$scope.usuario,
-                        success:function(data){
+  
 
-                            var valores = eval(data);
+  
 
-                            var e   = valores[0];
-                            console.log("id:::");
-                            console.log(e);
-                        }
-                    });
-                    return false;});
+          $http({
+                method: 'GET',
+                url: almacenador.getUrl()+'/API/verusuariosid',
+               params: {"correo": $scope.usuario }
+                })
+          .then(function(response) {
+                $scope.usuarios = response.data ;
+                console.log($scope.usuarios);
+                console.log($scope.usuarios.idusuarios);
+                sessionStorage.setItem("id",$scope.usuarios.idusuarios);
+              // toastr.success('done', 'Correcto');            
+                        
+        });
+         
+ 
 
     // Initialize collapse button
   $(".button-collapse").sideNav();

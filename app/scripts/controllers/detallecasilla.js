@@ -8,7 +8,7 @@
  * Controller of the ebarrioApp
  */
 angular.module('ebarrioApp')
-  .controller('DetallecasillaCtrl', function ($scope,$http,$route) {
+  .controller('DetallecasillaCtrl', function ($scope,$http,$route, almacenador) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -18,7 +18,7 @@ angular.module('ebarrioApp')
 
     $http({
             method: 'GET',
-            url: 'http://localhost:8080/API/verproyectoid',
+            url: almacenador.getUrl()+'/API/verproyectoid',
             params: {"id": $scope.pid }
             })
       .then(function(respuesta) {
